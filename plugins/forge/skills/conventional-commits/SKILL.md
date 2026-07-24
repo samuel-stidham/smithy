@@ -1,6 +1,7 @@
 ---
 name: conventional-commits
-description: Commit message and PR title format for all commits forge commands create. Every command that commits or writes a PR title must follow this format.
+description: Commit message and PR title format for every commit the forge family creates. Use whenever committing or titling a PR.
+user-invocable: false
 ---
 
 # Conventional Commits

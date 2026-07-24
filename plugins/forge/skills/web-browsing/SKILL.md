@@ -1,50 +1,54 @@
 ---
 name: web-browsing
-description: Use the browse CLI as the default browser for reading or interacting with any webpage. Use it whenever a task opens a URL, reads a page, fills a form, or takes a screenshot. Also use it whenever WebFetch returns empty content or a JavaScript shell.
+description: Use the browse CLI for webpages, with the Browserbase remote-session budget. Use whenever a task opens a URL or WebFetch returns a JavaScript shell.
+user-invocable: false
 ---
 
 # Web Browsing
 
-This skill makes the `browse` CLI the default browser for any forge task that touches the web. `browse` drives a real Chrome browser, locally or in the Browserbase cloud. JavaScript-rendered pages return their actual content through it. Claude's built-in WebFetch only sees static HTML, so single-page apps and dynamic sites come back empty.
+`browse` drives real Chrome, locally or on Browserbase. Use it for any
+real webpage. WebFetch is for raw files, JSON APIs, and plain text
+only, and is never retried after returning empty content or a
+JavaScript shell.
 
-## When to use which tool
+Run `browse skills show` before the first browse command in a session
+and follow it for command mechanics. These rules apply on top.
 
-- **`browse`**: any real webpage. When in doubt, use `browse`.
-- **WebFetch**: raw file endpoints and APIs only. Examples are raw GitHub files, JSON APIs, and plain-text or markdown URLs.
-- If WebFetch was tried first and returned empty content, partial content, or a JavaScript shell, do not retry it. Switch to `browse`.
+- Pass the mode explicitly on every `browse open`. Use `--local` on a
+  machine with Chrome. Use `--remote` when no local Chrome exists or
+  the site needs Browserbase infrastructure.
+- Give each independent task its own `--session <name>`. When
+  `BROWSE_SESSION` is set, every command already targets that session.
+  Pass no `--session`, and never stop it. The user owns it.
+- Stop sessions you created when their task ends.
+- Remote sessions need `BROWSERBASE_API_KEY` in the environment. Never
+  print it, and never export a secret yourself. Sessions never need a
+  project ID.
+- Bot-protected sites need paid Browserbase features. Say so plainly
+  and offer another source instead of retrying a block page.
+- If the CLI is missing, do not install it. Fall back to WebFetch,
+  complete the task as static HTML allows, and note the limitation in
+  the report.
 
-## Setup check
+## Remote budget
 
-Check that the CLI exists with `which browse`. If it is missing, do not install it. Fall back to WebFetch for the current task, and follow the fallback section below.
+Remote sessions spend a metered monthly budget of 100 browser hours.
+Local Chrome is free, which is one more reason to prefer it. Before
+opening a remote session, check usage:
 
-Remote sessions need `BROWSERBASE_API_KEY` already set in the environment. Never print its value, and never export a secret into the session yourself. If the key is absent, stay in local mode, which needs no key. When the machine has neither local Chrome nor a key, fall back to WebFetch and follow the fallback section below. Never set or ask for `BROWSERBASE_PROJECT_ID`. The API key alone identifies the project.
+```
+browse cloud projects usage "$BROWSERBASE_PROJECT_ID"
+```
 
-## Using the CLI
+When the variable is unset, derive the ID from
+`browse cloud projects list`. A 404 means the stored ID is stale.
+Re-derive it and tell the user the entry needs updating.
 
-Run `browse skills show` before the first browse command in a session. The CLI ships a version-matched skill covering workflows, session management, and failure recovery. Follow it for command mechanics instead of guessing flags. A few rules apply on top of it.
-
-- Pass the mode explicitly on every `browse open`. Use `--local` on a machine with Chrome, unless the site needs Browserbase infrastructure. Use `--remote` when no local Chrome exists or the site needs that infrastructure. Detect Chrome by attempting `--local` once. Treat a "No Chrome or Chromium found" failure as no local Chrome and do not retry `--local`.
-- Give each independent task its own `--session <name>`. If `BROWSE_SESSION` is set, every command already targets that one session, so do not pass `--session` at all.
-- When `BROWSE_SESSION` is set, the user owns that session's lifecycle. Do not stop it.
-- Stop a session you created yourself when its task is done, using `browse stop --session <name>`.
-- Bot-protected sites need `--remote --proxies` or `--remote --verified`, which are paid Browserbase features. On a free plan, say so plainly and offer a non-protected source instead of retrying against a block page.
-- For a remote session, surface the full live-view or replay URL the CLI prints, without truncating the id.
-
-## Falling back to WebFetch
-
-Fall back to WebFetch in two cases. Either the CLI is missing, or it is installed on a machine with neither local Chrome nor an API key. Complete the task as well as static HTML allows. Then add a short note to your report, matching the case.
-
-When the CLI is missing:
-
-> This task read the web with WebFetch, which cannot render JavaScript. For a
-> better browsing experience, install the Browserbase CLI with
-> `npm install -g browse`. Local mode drives your own Chrome and needs no
-> account. For cloud browsing, create an API key at https://www.browserbase.com
-> and export it as `BROWSERBASE_API_KEY`.
-
-When the CLI is installed but has neither Chrome nor a key:
-
-> This task read the web with WebFetch, which cannot render JavaScript. The
-> `browse` CLI is installed but has no browser to drive. Install Chrome for
-> free local mode. For cloud mode, create an API key at https://www.browserbase.com
-> and export it as `BROWSERBASE_API_KEY`.
+- Pace line: about 3 hours 20 minutes per day of the billing month.
+  Ahead of pace, say so and lean harder on local mode.
+- Past 80 hours, warn in every browsing report. Past 90, ask before
+  any new remote session. At 100, stop. Overage needs an explicit go.
+- Leaked sessions burn budget while idle. After remote work, confirm
+  nothing is RUNNING with `browse cloud sessions list`. No `keepAlive`
+  for one-off tasks. Prefer short timeouts so forgotten sessions end
+  themselves.

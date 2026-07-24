@@ -1,38 +1,85 @@
-# forge
+# forge monorepo
 
-forge is a repo-agnostic engineering workflow plugin for Claude Code. It scaffolds Clean Architecture project templates, executes development tasks, writes long-form prose, and compiles ebooks. It cuts releases, reviews diffs, ships PRs, and deploys projects to the cloud. It is installed across every machine and repo Samuel works in. That includes Hudl repos, personal side projects, and writing projects alike. It must behave identically everywhere.
+This repo is a Claude Code plugin marketplace holding the forge
+family: three plugins sharing one set of rules. It is installed
+across every machine and repo Samuel works in, Hudl and personal
+alike, and must behave identically everywhere.
 
-This file is the single source of truth for every AI agent working in this repo. The root `CLAUDE.md` and `AGENTS.md`, plus the entries under `.cursor/rules/`, `.github/copilot-instructions.md`, and `.agents/rules/`, are thin pointers here. Change agent guidance in this file only. Never restate it in a pointer file.
+This file is the single source of truth for every AI agent working in
+this repo. The root `CLAUDE.md` and `AGENTS.md`, plus the entries
+under `.cursor/rules/`, `.github/copilot-instructions.md`, and
+`.agents/rules/`, are thin pointers here. Change agent guidance in
+this file only. Never restate it in a pointer file.
 
-## Working on forge itself
+## The three plugins
 
-This repo *is* the plugin. There is no separate build step and nothing to compile. Editing a file under `commands/` or `skills/` changes what the plugin does, once the edit reaches the copy Claude Code reads.
+- `plugins/forge/`: core engineering workflow. Verbs do-work, review,
+  ship, version, and test-harness, the shared reference skills
+  (writing-style, conventional-commits, clean-code,
+  clean-architecture, web-browsing, citations), and the implementer
+  agent. Enabled globally.
+- `plugins/foundry/`: product factory. Verbs scaffold and deploy,
+  plus infrastructure-as-code. Enabled per repo.
+- `plugins/draft/`: writing studio. Verbs write and publish, plus
+  creative and technical-writing. Enabled per repo.
 
-### Testing changes
+**Dependency rule:** leaf plugins (foundry, draft) borrow forge
+skills by qualified name, such as `forge:clean-architecture`. forge
+references nothing outside itself. Never point a forge file at a
+leaf. A leaf verb appearing beside forge verbs is per-repo
+enablement, never a file reference.
 
-Claude Code reads plugin commands and skills from disk at session start, and again on plugin reload. The plugin runs only in Claude Code, so test changes there, even when editing from another agent. To test a change, follow these steps.
+## Structure
 
-1. Get the edited files in front of Claude Code. This repo installs through the `forge-marketplace` entry, which points at the GitHub repo. Claude Code reads a per-version cache under `~/.claude/plugins/cache/`, never this checkout. Commit the change, bump the version so `claude plugin update` can see the release, and push. Then run `claude plugin update forge@forge-marketplace` and restart the session. For faster iteration, install forge from a local path pointing at this checkout. A session restart alone then picks up each edit, with no version bump or push.
-2. Invoke the changed command in a real or scratch repo. Check that the behavior matches the instructions in the file.
-3. For a skill under `skills/`, test it through the commands that reference it. Grep the command files for the skill's name to find them. For a skill no command references, test it by exercising the behavior its description covers. Confirm the skill's guidance is actually applied.
+There is no build step. Everything is prompt files. Each plugin has
+`.claude-plugin/plugin.json` with its own version,
+`skills/<name>/SKILL.md`, and optionally `agents/`. Verbs carry
+`disable-model-invocation: true` and are invoked as
+`/<plugin>:<name>`. Reference skills carry `user-invocable: false`
+and load by name. The root `.claude-plugin/marketplace.json` lists
+all three plugins.
 
-There is no automated test suite for the plugin's own behavior. These are prompt files. Testing means running them against real scenarios and checking that the output makes sense.
+## Testing changes
 
-### Command naming convention
+Claude Code reads plugins from a per-version cache under
+`~/.claude/plugins/cache/`, never this checkout. The plugins run only
+in Claude Code, so test there even when editing from another agent.
 
-All commands live under the `/forge:` namespace. The namespace comes from the plugin name, `forge`, set in `.claude-plugin/plugin.json`, plus the filename under `commands/`. Don't rename a command file without updating every reference to it. Check the README, the other command files, and this file.
+1. For real installs: commit, bump the plugin's version in its
+   `plugin.json`, push, then run
+   `claude plugin update <plugin>@forge-marketplace` and restart the
+   session. For fast iteration: install from a local path pointing at
+   this checkout. A session restart then picks up each edit.
+2. Invoke the changed verb in a real or scratch repo. Check the
+   behavior matches the file.
+3. Test a reference skill through the verbs that name it (grep for
+   it), or by exercising the behavior its description covers.
 
-### Repo-agnostic by design
+There is no automated test suite. Testing means running the prompts
+against real scenarios and judging the output.
 
-Every command must work the same whether it runs in a Go monorepo, a TypeScript side project, or a Python script. Concretely, this means the following.
+## Repo-agnostic by design
 
-- **Never hardcode a language, framework, package manager, or test runner.** Detect them from the target repo. Look at manifest files, lockfiles, and existing scripts, instead of assuming.
-- **Never hardcode a base branch name.** Detect `main`, `master`, or `develop` from the repo. Do not assume `main`.
-- **Never assume a CI provider, hosting platform, or cloud vendor.** Only rely on what is already evident in the target repo.
-- When a command needs something repo-specific, it should look for that information. Check `CLAUDE.md`, `AGENTS.md`, the README, manifest files, and existing code patterns. Do not ask the user to pre-configure forge for that repo. forge ships with zero repo-specific configuration.
+Every verb works the same in a Go monorepo, a TypeScript side
+project, or a Python script.
 
-If you are adding or editing a command, and you notice an instruction that only makes sense for one ecosystem, stop. Rewrite it to detect and adapt instead.
+- Never hardcode a language, framework, package manager, or test
+  runner. Detect them from the target repo's manifests, lockfiles,
+  and scripts.
+- Never hardcode a base branch. Detect `main`, `master`, or
+  `develop`.
+- Never assume a CI provider, hosting platform, or cloud vendor.
+- Repo-specific information comes from the target repo's `CLAUDE.md`,
+  `AGENTS.md`, README, manifests, and code. forge ships with zero
+  repo-specific configuration.
 
-### Editing the skills
+An instruction that only makes sense for one ecosystem gets rewritten
+to detect and adapt.
 
-Every `SKILL.md` under `skills/` is a shared reference for the commands. Each one is the single source of truth for its topic. Don't duplicate a skill's rules inside the command files or the README. Reference the matching skill by name instead. The README's skill entries may briefly summarize what a skill covers. They must not restate its rules in enforceable detail. This rule covers every skill, including any added later.
+## Editing the skills
+
+Each skill is the single source of truth for its topic. Verbs
+reference skills by name and never restate their rules. Cross-plugin
+borrows always use the qualified name. Prose in every skill follows
+the `forge:writing-style` skill. Each plugin releases independently,
+tagged `{plugin}-v{version}` through `/forge:version`.
