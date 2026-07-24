@@ -1,7 +1,7 @@
-# forge monorepo
+# smithy
 
-This repo is a Claude Code plugin marketplace holding the forge
-family: three plugins sharing one set of rules. It is installed
+This repo is smithy, a Claude Code plugin marketplace holding three
+plugins that share one set of rules. It is installed
 across every machine and repo Samuel works in, Hudl and personal
 alike, and must behave identically everywhere.
 
@@ -35,9 +35,11 @@ There is no build step. Everything is prompt files. Each plugin has
 `.claude-plugin/plugin.json` with its own version,
 `skills/<name>/SKILL.md`, and optionally `agents/`. Verbs carry
 `disable-model-invocation: true` and are invoked as
-`/<plugin>:<name>`. Reference skills carry `user-invocable: false`
-and load by name. The root `.claude-plugin/marketplace.json` lists
-all three plugins.
+`/<plugin>:<name>`. Review additionally runs as a synchronous fork
+(`context: fork`, `background: false`). Reference skills carry
+`user-invocable: false` and load by name. The root
+`.claude-plugin/marketplace.json` lists all three plugins, and the
+leaf manifests declare `"dependencies": ["forge"]`.
 
 ## Testing changes
 
@@ -47,9 +49,9 @@ in Claude Code, so test there even when editing from another agent.
 
 1. For real installs: commit, bump the plugin's version in its
    `plugin.json`, push, then run
-   `claude plugin update <plugin>@forge-marketplace` and restart the
-   session. For fast iteration: install from a local path pointing at
-   this checkout. A session restart then picks up each edit.
+   `claude plugin update <plugin>@smithy` and restart the session.
+   For fast iteration: install from a local path pointing at this
+   checkout. A session restart then picks up each edit.
 2. Invoke the changed verb in a real or scratch repo. Check the
    behavior matches the file.
 3. Test a reference skill through the verbs that name it (grep for
@@ -66,8 +68,7 @@ project, or a Python script.
 - Never hardcode a language, framework, package manager, or test
   runner. Detect them from the target repo's manifests, lockfiles,
   and scripts.
-- Never hardcode a base branch. Detect `main`, `master`, or
-  `develop`.
+- Never hardcode a base branch. Detect the repo's default branch.
 - Never assume a CI provider, hosting platform, or cloud vendor.
 - Repo-specific information comes from the target repo's `CLAUDE.md`,
   `AGENTS.md`, README, manifests, and code. forge ships with zero
@@ -82,4 +83,5 @@ Each skill is the single source of truth for its topic. Verbs
 reference skills by name and never restate their rules. Cross-plugin
 borrows always use the qualified name. Prose in every skill follows
 the `forge:writing-style` skill. Each plugin releases independently,
-tagged `{plugin}-v{version}` through `/forge:version`.
+tagged `{plugin}--v{version}` through `/forge:version` (the
+double-hyphen form `claude plugin tag` produces).

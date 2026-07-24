@@ -22,9 +22,9 @@ these. Strip them from arguments before interpreting the task.
 - `--creative`: force the creative context.
 - `--type-{name}`: refine the form. `--type-prose` is the default.
   `--type-poetry` switches to the verse rules below. `--type-article`
-  routes to the `technical-writing` skill instead. A type flag
-  implies its context on its own. Any other type name is a question,
-  never a guess.
+  routes to the `technical-writing` skill and forces the work
+  context. Every other type flag implies the creative context on its
+  own. Any unknown type name is a question, never a guess.
 
 ## Voice
 

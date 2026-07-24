@@ -1,6 +1,6 @@
 # foundry
 
-The product factory of the forge family. Scaffolds complete Clean
+The product factory of the smithy family. Scaffolds complete Clean
 Architecture project templates and deploys them with OpenTofu.
 
 **Requires the forge plugin.** Foundry's skills borrow

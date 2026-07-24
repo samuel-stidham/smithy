@@ -4,6 +4,7 @@ description: Audit the current branch's diff against its base. Verdict is SHIP I
 argument-hint: "[optional base branch, defaults to the repo's default branch]"
 disable-model-invocation: true
 context: fork
+background: false
 ---
 
 # /forge:review
@@ -15,7 +16,9 @@ to judge whether it fits.
 ## Setup
 
 1. Base branch: `$ARGUMENTS` if given. Otherwise detect the repo's
-   default branch. Do not assume `main`.
+   default branch. Do not assume `main`. If the base cannot be
+   determined, report that ambiguity as the entire output and return
+   no verdict.
 2. Diff the merge base against HEAD. Read changed files beyond the
    hunks wherever the diff alone is unclear.
 3. Read the repo's agent instructions (`CLAUDE.md`, `AGENTS.md`) and
@@ -37,8 +40,9 @@ specific issues. Cite file and line. No generic advice.
   at trust boundaries, unsafe deserialization, authorization gaps.
 - **Docs.** Public behavior or setup changed without the README or
   docs following.
-- **Scope.** The diff matches what was asked, no more and no less.
-  Flag unrequested changes and quiet scope creep.
+- **Scope.** The diff matches the intent its branch name and commit
+  subjects state, no more and no less. Flag unrequested changes and
+  quiet scope creep.
 
 ## Verdict
 

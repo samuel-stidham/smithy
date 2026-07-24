@@ -20,7 +20,8 @@ into always-loaded memory as a floor. This skill stays canonical.
   hyphen standing in for one. Break the sentence in two, or use a
   comma.
 - **No semicolons.** Same fix.
-- **Cap sentences at twenty-two words.** Split anything longer.
+- **Cap sentences at twenty-two words.** In verse the cap applies per
+  line. Split anything longer.
 
 ### Quoting exemption
 
@@ -34,8 +35,8 @@ follows every rule.
 
 The tells of machine-written text. They apply in full to the work
 context. In creative writing they yield only where the project's
-existing prose establishes the pattern, as the `creative` skill in the
-draft plugin defines. The three mechanical rules above never yield.
+existing prose establishes the pattern. The three mechanical rules
+above never yield.
 
 - **No "not X, but Y" framing.** State what is true.
 - **No throat-clearing openers.** Start with the content.
@@ -65,11 +66,7 @@ in the work context even inside creative commands.
 
 ## Before delivering
 
-Scan your own prose, never quoted blocks, before it leaves a command.
-
-1. Search for `—`, `–`, a `--` standing in for a dash, and `;` outside
-   code. Flag names like `--work` and number ranges do not count.
-   Rewrite every real hit.
-2. Find the longest sentence. Split it past twenty-two words.
-3. Confirm every fenced block holds quoted material, never prose moved
-   there to dodge the rules.
+Scan your own prose, never quoted blocks, against the mechanical
+rules: dashes and semicolons (flag names like `--work` and number
+ranges do not count), the longest sentence, and fenced blocks holding
+only quoted material.

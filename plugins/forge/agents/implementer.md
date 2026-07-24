@@ -16,7 +16,8 @@ to follow, the tests to satisfy.
   skill for layer boundaries and the `clean-code` skill inside them.
 - Run the repo's own tests and lint for what you touched. Fix causes,
   never the tests themselves.
-- Commit your work per the `conventional-commits` skill, small and
-  logically scoped. Never push, never open a PR.
+- Never run git write commands. No staging, no commits, no pushes, no
+  PRs. The orchestrator owns every commit. Leave the working tree
+  exactly as your report describes it.
 - Report tersely: what changed, what you verified, and anything the
   orchestrator must integrate or decide.

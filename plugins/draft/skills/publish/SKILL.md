@@ -44,7 +44,8 @@ MOBI only on explicit request.
 4. Validate with `epubcheck` when available. Fix what is fixable and
    report the rest. Without it, note that manual validation is
    needed before upload.
-5. Output to `dist/` or `build/`, gitignored, never committed.
+5. Output to `dist/` or `build/`, never committed. Add the ignore
+   entry when the `.gitignore` lacks it.
 6. Report per `forge:writing-style`: what was generated, where, file
    sizes, validation results, and the per-platform checklist (KDP at
    kdp.amazon.com, Nook at press.barnesandnoble.com).

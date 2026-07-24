@@ -15,8 +15,8 @@ user invocation, never as a side effect.
 Target: $ARGUMENTS. Empty means detect the default environment. Ask
 only when more than one exists and the choice is unclear.
 
-Follow the `foundry:infrastructure-as-code` skill for every OpenTofu
-action. This plugin requires forge.
+Follow the `infrastructure-as-code` skill for every OpenTofu action.
+This plugin requires forge.
 
 ## Detect, never assume
 
@@ -30,7 +30,8 @@ suggest `/foundry:scaffold --infra opentofu`.
 
 Stop and report on any failure. Never force past one.
 
-- Clean working tree. Deploy committed state only.
+- Clean working tree, untracked files included. Deploy committed
+  state only.
 - Required CLIs installed, such as `tofu` and the container or cloud
   CLI the repo uses.
 - Provider credentials present in the environment, never read from

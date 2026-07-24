@@ -1,4 +1,4 @@
-# forge working instructions
+# smithy working instructions
 
 Follow the canonical agent instructions in @/.agents/context.md
 (the `.agents/context.md` file at the repo root). That file is the

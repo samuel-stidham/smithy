@@ -29,7 +29,7 @@ package manager, test framework, and conventional layout.
 ## Infrastructure with --infra
 
 Opt-in only. `--infra opentofu` follows the
-`foundry:infrastructure-as-code` skill as the source of truth for the
+`infrastructure-as-code` skill as the source of truth for the
 `infra/` layout, modules, providers, state, and secrets. `--provider`
 is then required: `aws`, `gcp`, or `digitalocean`. The only accepted
 `--infra` value is `opentofu`. If the user passes `terraform`, explain
@@ -47,8 +47,11 @@ Dockerfile. Add a deploy stage to the CI pipeline.
 3. Multi-stage Dockerfile: non-root final stage, runtime artifact
    only.
 4. `docker-compose.yml` with only the dependencies the type needs.
-5. Makefile: `build`, `run`, `test`, `lint`, `docker-build`.
-6. GitHub Actions CI at `.github/workflows/ci.yml`: deps, lint, test.
+5. The language's native task runner (a Makefile where that is
+   idiomatic) with `build`, `run`, `test`, `lint`, and `docker-build`
+   verbs.
+6. CI running deps, lint, and test. GitHub Actions is the default.
+   Emit another provider's config when the user names one.
 7. `.env.example` with placeholders and one-line comments. No real
    secrets.
 8. README: what it is, the architecture and data flow, how to run
@@ -62,7 +65,7 @@ Dockerfile. Add a deploy stage to the CI pipeline.
 
 1. State the language, type, flags, and file tree. Briefly.
 2. Create real, working files.
-3. Run the Makefile test and lint targets. With `--infra`, also run
+3. Run the generated test and lint targets. With `--infra`, also run
    `tofu validate`. Fix failures before reporting success.
 4. Report what was created, how to run it, and the decisions worth
    revisiting. Prose per the `forge:writing-style` skill.

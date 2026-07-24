@@ -1,6 +1,6 @@
 # draft
 
-The writing studio of the forge family. Writes books, poetry, and
+The writing studio of the smithy family. Writes books, poetry, and
 technical articles, and compiles ebooks.
 
 **Requires the forge plugin.** Draft's skills extend

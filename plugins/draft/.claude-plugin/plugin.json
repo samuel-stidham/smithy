@@ -1,14 +1,15 @@
 {
   "name": "draft",
   "displayName": "Draft",
-  "description": "Writing studio for the forge family. Writes books, poetry, and technical articles, and compiles ebooks for publishing. Requires the forge plugin for shared skills.",
+  "description": "Writing studio for the smithy family. Writes books, poetry, and technical articles, and compiles ebooks for publishing. Requires the forge plugin for shared skills.",
   "version": "1.0.0",
+  "dependencies": ["forge"],
   "author": {
     "name": "Samuel Stidham"
   },
   "license": "MIT",
-  "homepage": "https://github.com/samuel-stidham/forge",
-  "repository": "https://github.com/samuel-stidham/forge",
+  "homepage": "https://github.com/samuel-stidham/smithy",
+  "repository": "https://github.com/samuel-stidham/smithy",
   "keywords": [
     "writing",
     "prose",

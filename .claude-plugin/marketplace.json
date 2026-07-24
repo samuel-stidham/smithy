@@ -1,10 +1,10 @@
 {
-  "name": "forge-marketplace",
+  "name": "smithy",
   "owner": {
     "name": "Samuel Stidham",
     "email": "dqfan2012@gmail.com"
   },
-  "description": "The forge family: repo-agnostic Claude Code plugins for engineering, product scaffolding, and writing.",
+  "description": "The smithy: repo-agnostic Claude Code plugins for engineering (forge), product scaffolding (foundry), and writing (draft).",
   "plugins": [
     {
       "name": "forge",

@@ -37,11 +37,9 @@ reference to it in the ledger's format, at the time it is cited.
    search, verified by visiting. Prefer these.
 2. **The user's own library.** Cited from excerpts or page references
    the user supplies. Print status is irrelevant. Owned is accessible.
-3. **Academic databases via the user's institution.** SNHU enrollment
-   grants EBSCO and similar access (dated note: valid during the
-   Master's program as of 2026, retire this tier at graduation).
-   User-supplied PDFs or excerpts only, since these databases need
-   authentication.
+3. **Academic databases the user has institutional access to.** Ask
+   whether this tier applies when it becomes relevant. User-supplied
+   PDFs or excerpts only, since these databases need authentication.
 4. **Acquirable sources.** Out of print or paid. Never banned for
    print status. Surface a feasibility conversation: what the source
    is, why it is right, where to find it, rough cost. Citable once

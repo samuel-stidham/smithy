@@ -48,9 +48,9 @@ defines them). If nothing remains, ask what to write next.
 5. **Self-review.** Continuity with existing content, tone
    consistency, fit with the outline. Flag anything uncertain.
 6. **Report** per `forge:writing-style`: what was written, where it
-   fits, decisions made, continuity concerns. Suggest
-   `/forge:review` before shipping. Stopping early leaves a resume
-   path.
+   fits, decisions made, continuity concerns, and a note that the
+   diff deserves reading before shipping. Stopping early leaves a
+   resume path.
 
 ## Boundaries
 

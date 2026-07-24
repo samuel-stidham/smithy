@@ -33,8 +33,9 @@ already exists in the project, ask before extending or replacing it.
   operations, plus a batch tool to cut round trips), inspection
   (structured state, detailed and summary forms), and targeted testing
   (state overrides for edge cases, clearly marked test-only).
-- An `mcpServers` entry in `.claude/settings.json`, merged into any
-  existing file, never overwriting it.
+- An `mcpServers` entry in `.mcp.json` at the repo root, merged into
+  any existing file, never overwriting it. Note in the report that
+  Claude Code will ask to approve the project server on next start.
 - A `TEST_PLAN.md` checklist: general lifecycle checks, feature checks
   from the domain API, edge cases, and milestones. Prose per the
   `writing-style` skill.

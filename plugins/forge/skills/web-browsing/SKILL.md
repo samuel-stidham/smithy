@@ -32,9 +32,11 @@ and follow it for command mechanics. These rules apply on top.
 
 ## Remote budget
 
-Remote sessions spend a metered monthly budget of 100 browser hours.
-Local Chrome is free, which is one more reason to prefer it. Before
-opening a remote session, check usage:
+Remote sessions spend a metered monthly budget. The numbers below
+describe the owner's current plan (100 browser hours a month). Scale
+them to the account's actual plan when it differs. Local Chrome is
+free, which is one more reason to prefer it. Before opening a remote
+session, check usage:
 
 ```
 browse cloud projects usage "$BROWSERBASE_PROJECT_ID"

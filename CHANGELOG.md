@@ -1,5 +1,74 @@
 # Changelog
 
+## forge--v1.0.0, foundry--v1.0.0, draft--v1.0.0
+
+Split the single plugin into a marketplace monorepo of three: forge
+(core engineering workflow), foundry (product factory), and draft
+(writing studio). Rearchitect every skill for the Claude 5 generation
+models, then harden the seams found by an adversarial review.
+
+### Added
+
+- `plugins/` monorepo layout. Each plugin carries its own manifest and
+  version. The leaf manifests declare `"dependencies": ["forge"]`, so
+  installing foundry or draft pulls forge in automatically.
+- forge `citations` skill: verified, reader-accessible sources in APA
+  style. Nothing cited unread, nothing cited the reader cannot
+  access, a four-tier source ladder, and reference-ledger support for
+  vault sync.
+- forge `agents/implementer.md`: an opus-pinned implementation
+  subagent. do-work orchestrates at most two in flight, on disjoint
+  files, and owns every commit itself.
+- draft `creative` skill: voice, continuity, pacing, and poetry rules
+  extending `forge:writing-style`, plus the context flags including
+  the new `--type-article`.
+- draft `technical-writing` skill: article structure, verbatim code,
+  research through `forge:web-browsing`, claims per `forge:citations`.
+- `web-browsing`: a Browserbase remote-session budget. Usage checks
+  before remote sessions, pace and threshold warnings, and leaked-
+  session hygiene.
+- `.agents/context.md` as the single source of truth for agent
+  instructions, with thin pointers for Claude Code, Codex, Cursor,
+  Copilot, and Antigravity.
+
+### Changed
+
+- The repo and marketplace are renamed `smithy`. Plugins install as
+  `forge@smithy`, `foundry@smithy`, and `draft@smithy`.
+- Commands collapsed into skills. Verbs carry
+  `disable-model-invocation: true`; reference skills carry
+  `user-invocable: false`. review runs as a synchronous fork
+  (`context: fork`, `background: false`) with six lenses, scope
+  judged from branch name and commit subjects.
+- scaffold, deploy, write, and publish moved to their plugins:
+  `/foundry:scaffold`, `/foundry:deploy`, `/draft:write`,
+  `/draft:publish`.
+- `clean-architecture` reduced to the owner's positions plus a
+  dependency-rule fitness test. `clean-code` reduced to
+  counter-default judgment cues. Every description rewritten short.
+- version understands marketplace monorepos: it asks which plugin,
+  updates that plugin's manifest, scopes changelog entries to the
+  plugin's directory, and tags `{plugin}--v{version}` to match
+  `claude plugin tag`. Pushing the release commit and tag is its job.
+- ship detects the repo's default branch instead of assuming a
+  three-name protected list, counts untracked files as a dirty tree,
+  and uses a prepared PR body when do-work supplies one.
+- test-harness registers its generated MCP server in `.mcp.json`,
+  the file Claude Code actually reads, instead of settings.json.
+- writing-style is self-contained: the creative yield condition is
+  inlined, and the 22-word cap states its per-line application in
+  verse, resolving the poetry conflict with the always-loaded floor.
+- citations and web-browsing state user-specific facts (institutional
+  access, plan limits) as defaults to adapt, keeping the plugins
+  repo-agnostic.
+
+### Removed
+
+- `token-budget` skill. Its surviving rules (commit early, leave a
+  resume path) fold into do-work.
+- Root `VERSION.md`. Each plugin's `plugin.json` is the version
+  source of truth.
+
 ## v0.6.0
 
 Expand writing-style with a quoting exemption, a habits list, and a

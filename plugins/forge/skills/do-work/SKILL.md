@@ -29,14 +29,17 @@ If `$ARGUMENTS` is empty, ask what to work on before doing anything else.
 4. **Branch.** Name it `{type}/{short-kebab-description}`, with the type
    from the `conventional-commits` skill. If uncommitted work that is
    not yours sits in the tree, stop and ask.
-5. **Implement.** Delegate implementation to `implementer` subagents, at
-   most two in flight. Each brief must be self-contained: the files, the
-   conventions found, the tests expected. Subagents start fresh and see
-   none of this conversation. Integrate their results yourself. A small
-   task may skip delegation and be implemented directly. Follow the
-   `clean-architecture` skill across layers and the `clean-code` skill
-   inside them. Commit early and often per the `conventional-commits`
-   skill, so an interrupted session never loses work.
+5. **Implement.** Delegate implementation to `forge:implementer`
+   subagents, at most two in flight, each with a disjoint set of
+   files. Each brief must be self-contained: the files, the
+   conventions found, the tests expected. Subagents start fresh and
+   see none of this conversation. Implementers never touch git. You
+   integrate their results and commit each logical step yourself,
+   early and often per the `conventional-commits` skill, so an
+   interrupted session never loses work. A small task may skip
+   delegation and be implemented directly. Follow the
+   `clean-architecture` skill across layers and the `clean-code`
+   skill inside them.
 6. **Test.** Run the repo's own test and lint tooling. Fix causes, not
    tests. If a test itself is provably wrong, explain why before
    changing it. If the repo has no test tooling, say so plainly.
@@ -45,7 +48,8 @@ If `$ARGUMENTS` is empty, ask what to work on before doing anything else.
    ready for `/forge:ship`. If stopping early, leave a resume path:
    what is done, what remains, the branch name.
 8. **Reflect.** One or two lines: what worked, what to change next
-   time. Send durable lessons to memory.
+   time. A lesson worth keeping across sessions goes to auto memory,
+   never into repo files uninvited.
 
 ## Boundaries
 

@@ -6,13 +6,12 @@ user-invocable: false
 
 # Conventional Commits
 
-This skill defines the commit message format for commits forge commands generate. Every command that creates commits or PR descriptions must follow these rules.
-
 ## Subject line
 
 Use this format: `{type}({scope}): {description}`.
 
-The scope is optional. When used, it should be a short word naming the area of the codebase. Examples include `feat(auth): add JWT middleware` and `fix(config): handle missing env vars`.
+The scope is optional. When used, it is a short word naming the area
+of the codebase.
 
 **Allowed types:**
 
