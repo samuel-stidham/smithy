@@ -1,0 +1,21 @@
+{
+  "name": "draft",
+  "displayName": "Draft",
+  "description": "Writing studio for the forge family. Writes books, poetry, and technical articles, and compiles ebooks for publishing. Requires the forge plugin for shared skills.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Samuel Stidham"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/samuel-stidham/forge",
+  "repository": "https://github.com/samuel-stidham/forge",
+  "keywords": [
+    "writing",
+    "prose",
+    "poetry",
+    "technical-writing",
+    "ebooks",
+    "epub",
+    "publishing"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "forge",
+  "displayName": "Forge",
+  "description": "Repo-agnostic core engineering workflow. Executes development tasks, reviews diffs, ships draft PRs, cuts releases, and generates MCP test harnesses.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Samuel Stidham"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/samuel-stidham/forge",
+  "repository": "https://github.com/samuel-stidham/forge",
+  "keywords": [
+    "workflow",
+    "code-review",
+    "pull-requests",
+    "clean-architecture",
+    "clean-code",
+    "citations",
+    "web-browsing",
+    "browserbase"
+  ]
+}

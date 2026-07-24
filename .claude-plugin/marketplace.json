@@ -4,12 +4,22 @@
     "name": "Samuel Stidham",
     "email": "dqfan2012@gmail.com"
   },
-  "description": "A lean, repo-agnostic Claude Code plugin for engineering workflows.",
+  "description": "The forge family: repo-agnostic Claude Code plugins for engineering, product scaffolding, and writing.",
   "plugins": [
     {
       "name": "forge",
-      "source": ".",
-      "description": "Scaffold projects, execute dev tasks, review changes, ship PRs, deploy with OpenTofu, write prose, publish ebooks, and manage versions."
+      "source": "./plugins/forge",
+      "description": "Core engineering workflow: execute dev tasks, review diffs, ship draft PRs, cut releases, and generate MCP test harnesses."
+    },
+    {
+      "name": "foundry",
+      "source": "./plugins/foundry",
+      "description": "Product factory: scaffold Clean Architecture project templates and deploy them with OpenTofu. Requires forge."
+    },
+    {
+      "name": "draft",
+      "source": "./plugins/draft",
+      "description": "Writing studio: books, poetry, and technical articles, compiled into publishable ebooks. Requires forge."
     }
   ]
 }

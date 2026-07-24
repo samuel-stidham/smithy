@@ -1,0 +1,20 @@
+{
+  "name": "foundry",
+  "displayName": "Foundry",
+  "description": "Product factory for the forge family. Scaffolds complete Clean Architecture project templates and deploys them with OpenTofu. Requires the forge plugin for shared skills.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Samuel Stidham"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/samuel-stidham/forge",
+  "repository": "https://github.com/samuel-stidham/forge",
+  "keywords": [
+    "scaffolding",
+    "templates",
+    "clean-architecture",
+    "opentofu",
+    "deployment",
+    "infrastructure-as-code"
+  ]
+}

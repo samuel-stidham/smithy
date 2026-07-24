@@ -1,0 +1,8 @@
+---
+description: forge working instructions (single source of truth)
+alwaysApply: true
+---
+
+Follow the canonical agent instructions in @.agents/context.md before
+making any changes. That file is the single source of truth. Do not
+add instructions here.
