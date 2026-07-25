@@ -4,6 +4,14 @@ As of the 1.0.0 releases, each plugin keeps its own changelog beside
 its manifest (`plugins/<name>/CHANGELOG.md`). This file holds the
 pre-split history and repo-level changes only.
 
+## Unreleased
+
+The marketplace gains two plugins, bringing the count to six:
+bellows (recurring automation) and temper (security). Their initial
+skills are listed in their own changelogs. `.agents/context.md` now
+states the naming rule: plugin names are thematic to the smithy,
+verb names are plain.
+
 ## forge--v1.0.0, foundry--v1.0.0, draft--v1.0.0
 
 Split the single plugin into a marketplace monorepo of three: forge

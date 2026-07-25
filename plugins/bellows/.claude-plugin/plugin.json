@@ -1,0 +1,23 @@
+{
+  "name": "bellows",
+  "displayName": "Bellows",
+  "description": "Recurring automation plugin for the smithy family. Defines scheduled routines, watches long-running work, authors CI pipelines, and upgrades dependencies in tested batches.",
+  "version": "0.1.0",
+  "dependencies": ["forge"],
+  "author": {
+    "name": "Samuel Stidham"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/samuel-stidham/smithy",
+  "repository": "https://github.com/samuel-stidham/smithy",
+  "keywords": [
+    "automation",
+    "scheduling",
+    "routines",
+    "ci",
+    "pipelines",
+    "dependencies",
+    "upgrades",
+    "watch"
+  ]
+}

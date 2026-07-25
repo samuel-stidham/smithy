@@ -1,7 +1,7 @@
 {
   "name": "draft",
   "displayName": "Draft",
-  "description": "Writing studio for the smithy family. Writes books, poetry, and technical articles, and compiles ebooks for publishing. Requires the forge plugin for shared skills.",
+  "description": "Writing studio for the smithy family. Writes books, poetry, technical articles, and repo documentation, and compiles ebooks for publishing. Requires the forge plugin for shared skills.",
   "version": "1.0.1",
   "dependencies": ["forge"],
   "author": {
@@ -13,6 +13,7 @@
   "keywords": [
     "writing",
     "prose",
+    "documentation",
     "poetry",
     "technical-writing",
     "ebooks",

@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- `/draft:docs`: repo documentation. READMEs, ADRs, API references,
+  and guides, verified against the code they describe. Commands
+  shown in a doc get run when safe, and unrun ones are marked.
+
 ## draft--v1.0.1
 
 ### Added

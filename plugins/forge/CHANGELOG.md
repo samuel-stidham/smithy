@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- `/forge:debug`: symptom to proven fix. Reproduce first, isolate,
+  name the cause apart from the trigger, fix small, and prove the
+  fix with a regression test run both ways.
+- `/forge:refactor`: behavior-preserving restructuring. Safety net
+  first, characterization tests where coverage is thin, small
+  passing commits, and no behavior change ever mixed in.
+- `/forge:evaluate`: evidence-backed decision on a library, tool,
+  or approach. Cited research per `citations`, an optional
+  throwaway spike, and exactly one recommendation.
+
 ## forge--v1.0.1
 
 ### Added

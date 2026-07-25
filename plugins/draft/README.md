@@ -1,7 +1,7 @@
 # draft
 
-The writing studio of the smithy family. Writes books, poetry, and
-technical articles, and compiles ebooks.
+The writing studio of the smithy family. Writes books, poetry,
+technical articles, and repo documentation, and compiles ebooks.
 
 **Requires the forge plugin.** Draft's skills extend
 `forge:writing-style` and borrow `forge:citations`,
@@ -12,5 +12,8 @@ Install and enable forge wherever draft runs.
   project's own voice.
 - `/draft:publish [format]` compiles the manuscript into EPUB for
   KDP and Nook. Local files only.
+- `/draft:docs [task]` writes repo documentation, verified against
+  the code it describes.
 
-Enable per repo in writing projects.
+Enable per repo in writing projects and anywhere documentation is
+the deliverable.
