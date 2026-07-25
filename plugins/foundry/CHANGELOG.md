@@ -1,5 +1,11 @@
 # Changelog
 
+## foundry--v1.0.1
+
+### Added
+
+- This changelog, kept beside the plugin's manifest from now on.
+
 ## foundry--v1.0.0
 
 The product factory becomes its own plugin in the smithy monorepo.

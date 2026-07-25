@@ -1,5 +1,11 @@
 # Changelog
 
+## forge--v1.0.1
+
+### Added
+
+- This changelog, kept beside the plugin's manifest from now on.
+
 ## forge--v1.0.0
 
 The core engineering workflow becomes its own plugin in the smithy
