@@ -1,7 +1,7 @@
 # smithy
 
 smithy is a marketplace of lean, repo-agnostic plugins for
-[Claude Code](https://claude.com/claude-code): four plugins, one set
+[Claude Code](https://claude.com/claude-code): six plugins, one set
 of shared rules. It makes no assumptions about
 language, framework, or tooling. Every verb detects what it needs from
 the repo itself: manifest files, lockfiles, existing patterns, and the
@@ -12,12 +12,14 @@ configuration.
 
 | Plugin | What it does | Where it runs |
 | --- | --- | --- |
-| **forge** | Core engineering workflow: execute tasks, review diffs, ship draft PRs, cut releases, generate test harnesses. | Enabled globally. |
+| **forge** | Core engineering workflow: execute tasks, debug, refactor, evaluate options, review diffs, ship draft PRs, cut releases, generate test harnesses. | Enabled globally. |
 | **foundry** | Product factory: scaffold complete Clean Architecture project templates, deploy them with OpenTofu. | Enabled per repo. |
-| **draft** | Writing studio: books, poetry, and technical articles, compiled into publishable ebooks. | Enabled per repo. |
+| **draft** | Writing studio: books, poetry, technical articles, and repo documentation, with ebook compilation. | Enabled per repo. |
 | **anvil** | Nix environments: shell gates, distro-family portability audits, devenv environments, confirmed activation. | Enabled per repo. |
+| **bellows** | Recurring automation: scheduled routines, watches over long-running work, CI pipelines, dependency upgrades. | Enabled per repo. |
+| **temper** | Security: repo-wide audits across secrets, dependencies, code, and configuration, then hardening in exploitability order. | Enabled per repo. |
 
-foundry, draft, and anvil require forge. They borrow its shared
+foundry, draft, anvil, bellows, and temper require forge. They borrow its shared
 skills by name (`forge:clean-architecture`, `forge:writing-style`,
 `forge:citations`, `forge:web-browsing`) and declare the dependency
 in their manifests, so installing any of them pulls forge in
@@ -31,12 +33,16 @@ automatically. forge depends on nothing.
 /plugin install foundry@smithy
 /plugin install draft@smithy
 /plugin install anvil@smithy
+/plugin install bellows@smithy
+/plugin install temper@smithy
 ```
 
 Install forge at user scope so it is available everywhere. Keep the
 leaves disabled globally and enable them per repo: draft in writing
 projects, foundry where products get built or deployed, anvil in
-machine definitions and devenv projects. One line in that repo's
+machine definitions and devenv projects. bellows goes wherever
+unattended jobs run, and temper wherever the code faces users or
+handles secrets. One line in that repo's
 `.claude/settings.local.json` does it, or use the `/plugin` menu.
 
 ## Updating
@@ -58,6 +64,18 @@ The verbs, invoked as `/forge:<name>`:
   implementer subagents, tests with the repo's own tooling, and
   reports with a suggested PR title and body. It stops before
   pushing.
+- **debug** takes a symptom to a proven fix. It reproduces first,
+  isolates by shrinking and bisecting, and names the root cause
+  apart from the trigger that revealed it. The regression test runs
+  both ways before it counts.
+- **refactor** restructures code without changing behavior. It
+  builds the safety net first, writing characterization tests where
+  coverage is thin. Then it moves in small commits that each pass
+  the full suite. A bug found mid-refactor gets reported, never
+  silently fixed.
+- **evaluate** answers one engineering decision with evidence: cited
+  research per `citations`, an optional throwaway spike, and exactly
+  one recommendation. Runners-up get the reason they lost.
 - **review** audits the current branch's diff against its base
   through six lenses: architecture, code quality, tests, security,
   docs, and scope. It runs in an isolated subagent that reads only
@@ -128,6 +146,9 @@ budget).
   expectations. It builds local files only and never uploads. Needs
   [Pandoc](https://pandoc.org/installing.html) or an equivalent EPUB
   tool.
+- **docs** writes repo documentation verified against the code it
+  describes: READMEs, ADRs, API references, and guides. Commands
+  shown in a doc get run when safe, and unrun ones are marked.
 
 ## anvil
 
@@ -149,6 +170,44 @@ budget).
   against the current generation, and activates only after
   confirmation. Prints the rollback command on failure. Never runs
   `sudo`, never bootstraps.
+
+## bellows
+
+- **routine** turns a recurring chore into a scheduled job with a
+  full definition: purpose, cadence, boundaries, report destination,
+  stop procedure. It dry-runs the job attended before registering it
+  on whatever scheduler the environment offers.
+- **watch** babysits long-running external work until it resolves: a
+  PR moving through CI and review, a deploy, a migration. It reports
+  transitions, stays quiet on green, and never makes the decision
+  the human is watching for.
+- **ci** authors or updates the repo's CI pipeline on the provider
+  the repo already uses, mirroring the gates developers run locally.
+  Secrets stay in the provider's secret store.
+- **upgrade** moves dependencies in risk-ordered batches, testing
+  after each. Majors get their changelogs read through
+  `forge:web-browsing` first, and deliberate pins stay pinned.
+
+Every unattended job is judged against the `automation-boundaries`
+skill: no default-branch pushes, no merges, no publishing, loud
+failure, idempotent runs.
+
+## temper
+
+- **audit** reads the repo's security posture without changing it.
+  It covers secrets in tree and history, dependencies through the
+  ecosystem's own audit tool, code at trust boundaries, and
+  configuration. Findings rank by exploitability, and everything the
+  audit skipped gets named.
+- **harden** fixes the findings in exploitability order, one commit
+  per fix, tests after each. Changes to authentication,
+  authorization, crypto, and session handling get confirmed before
+  they land. A leaked credential gets reported for human rotation,
+  never rotated by the plugin.
+
+Both verbs share the `security-baseline` skill: exploitability
+ranking, the secrets bar, validated trust boundaries, fail-closed
+defaults, and audit honesty.
 
 ## Why this exists
 
