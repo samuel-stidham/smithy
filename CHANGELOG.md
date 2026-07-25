@@ -4,7 +4,7 @@ As of the 1.0.0 releases, each plugin keeps its own changelog beside
 its manifest (`plugins/<name>/CHANGELOG.md`). This file holds the
 pre-split history and repo-level changes only.
 
-## Unreleased
+## bellows--v0.1.0, temper--v0.1.0, forge--v1.1.0, draft--v1.1.0
 
 The marketplace gains two plugins, bringing the count to six:
 bellows (recurring automation) and temper (security). Their initial
