@@ -1,5 +1,9 @@
 # Changelog
 
+As of the 1.0.0 releases, each plugin keeps its own changelog beside
+its manifest (`plugins/<name>/CHANGELOG.md`). This file holds the
+pre-split history and repo-level changes only.
+
 ## forge--v1.0.0, foundry--v1.0.0, draft--v1.0.0
 
 Split the single plugin into a marketplace monorepo of three: forge

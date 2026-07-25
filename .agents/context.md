@@ -1,6 +1,6 @@
 # smithy
 
-This repo is smithy, a Claude Code plugin marketplace holding three
+This repo is smithy, a Claude Code plugin marketplace holding four
 plugins that share one set of rules. It is installed
 across every machine and repo Samuel works in, Hudl and personal
 alike, and must behave identically everywhere.
@@ -11,7 +11,7 @@ under `.cursor/rules/`, `.github/copilot-instructions.md`, and
 `.agents/rules/`, are thin pointers here. Change agent guidance in
 this file only. Never restate it in a pointer file.
 
-## The three plugins
+## The four plugins
 
 - `plugins/forge/`: core engineering workflow. Verbs do-work, review,
   ship, version, and test-harness, the shared reference skills
@@ -22,8 +22,12 @@ this file only. Never restate it in a pointer file.
   plus infrastructure-as-code. Enabled per repo.
 - `plugins/draft/`: writing studio. Verbs write and publish, plus
   creative and technical-writing. Enabled per repo.
+- `plugins/anvil/`: Nix environments. Verbs check, portability, env,
+  and switch, plus nix-conventions, shell-portability,
+  shell-dialects, parity, and devenv. Enabled per repo, in machine
+  definitions and devenv projects.
 
-**Dependency rule:** leaf plugins (foundry, draft) borrow forge
+**Dependency rule:** leaf plugins (foundry, draft, anvil) borrow forge
 skills by qualified name, such as `forge:clean-architecture`. forge
 references nothing outside itself. Never point a forge file at a
 leaf. A leaf verb appearing beside forge verbs is per-repo
@@ -38,8 +42,10 @@ There is no build step. Everything is prompt files. Each plugin has
 `/<plugin>:<name>`. Review additionally runs as a synchronous fork
 (`context: fork`, `background: false`). Reference skills carry
 `user-invocable: false` and load by name. The root
-`.claude-plugin/marketplace.json` lists all three plugins, and the
-leaf manifests declare `"dependencies": ["forge"]`.
+`.claude-plugin/marketplace.json` lists all four plugins, and the
+leaf manifests declare `"dependencies": ["forge"]`. Each plugin
+keeps its own `CHANGELOG.md` beside its manifest. The root changelog
+holds pre-split history and repo-level changes only.
 
 ## Testing changes
 

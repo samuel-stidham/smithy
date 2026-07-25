@@ -1,0 +1,24 @@
+{
+  "name": "anvil",
+  "displayName": "Anvil",
+  "description": "Nix environment plugin for the smithy family. Checks shell across dialects and distro families, writes devenv environments, and activates machine definitions safely.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Samuel Stidham"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/samuel-stidham/smithy",
+  "repository": "https://github.com/samuel-stidham/smithy",
+  "keywords": [
+    "nix",
+    "nixos",
+    "home-manager",
+    "devenv",
+    "shellcheck",
+    "portability",
+    "bash",
+    "fish",
+    "zsh"
+  ],
+  "dependencies": ["forge"]
+}

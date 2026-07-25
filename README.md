@@ -1,7 +1,7 @@
 # smithy
 
 smithy is a marketplace of lean, repo-agnostic plugins for
-[Claude Code](https://claude.com/claude-code): three plugins, one set
+[Claude Code](https://claude.com/claude-code): four plugins, one set
 of shared rules. It makes no assumptions about
 language, framework, or tooling. Every verb detects what it needs from
 the repo itself: manifest files, lockfiles, existing patterns, and the
@@ -15,11 +15,13 @@ configuration.
 | **forge** | Core engineering workflow: execute tasks, review diffs, ship draft PRs, cut releases, generate test harnesses. | Enabled globally. |
 | **foundry** | Product factory: scaffold complete Clean Architecture project templates, deploy them with OpenTofu. | Enabled per repo. |
 | **draft** | Writing studio: books, poetry, and technical articles, compiled into publishable ebooks. | Enabled per repo. |
+| **anvil** | Nix environments: shell gates, distro-family portability audits, devenv environments, confirmed activation. | Enabled per repo. |
 
-foundry and draft require forge. They borrow its shared skills by name
-(`forge:clean-architecture`, `forge:writing-style`, `forge:citations`)
-and declare the dependency in their manifests, so installing either
-pulls forge in automatically. forge depends on nothing.
+foundry, draft, and anvil require forge. They borrow its shared
+skills by name (`forge:clean-architecture`, `forge:writing-style`,
+`forge:citations`, `forge:web-browsing`) and declare the dependency
+in their manifests, so installing any of them pulls forge in
+automatically. forge depends on nothing.
 
 ## Installation
 
@@ -28,13 +30,14 @@ pulls forge in automatically. forge depends on nothing.
 /plugin install forge@smithy
 /plugin install foundry@smithy
 /plugin install draft@smithy
+/plugin install anvil@smithy
 ```
 
-Install forge at user scope so it is available everywhere. Keep
-foundry and draft disabled globally and enable them per repo: draft in
-writing projects, foundry where products get built or deployed. One
-line in that repo's `.claude/settings.local.json` does it, or use the
-`/plugin` menu.
+Install forge at user scope so it is available everywhere. Keep the
+leaves disabled globally and enable them per repo: draft in writing
+projects, foundry where products get built or deployed, anvil in
+machine definitions and devenv projects. One line in that repo's
+`.claude/settings.local.json` does it, or use the `/plugin` menu.
 
 ## Updating
 
@@ -65,7 +68,8 @@ The verbs, invoked as `/forge:<name>`:
   commits. Without `gh` it still pushes and prints a copy-ready body.
 - **version** cuts a release: bump, changelog, annotated tag, push
   the tag. In a plugin marketplace monorepo it asks which plugin and
-  tags `{plugin}-v{version}`. It always confirms before tagging.
+  tags that plugin's release in the format documented under
+  Updating. It always confirms before tagging.
 - **test-harness** generates an MCP server exposing the project's
   domain and application layers as tools, so Claude can drive the app
   headlessly for QA. It builds the harness only.
@@ -124,6 +128,27 @@ budget).
   expectations. It builds local files only and never uploads. Needs
   [Pandoc](https://pandoc.org/installing.html) or an equivalent EPUB
   tool.
+
+## anvil
+
+- **check** runs the static gate over a Nix repo: every shell file
+  checked with the right parser for its dialect (shellcheck cannot
+  parse fish, so fish gets `fish -n`), then the flake or
+  configuration evaluated. Builds nothing, changes nothing.
+- **portability** audits shell and package selection against the
+  distro families the repo claims. Every finding carries a file, a
+  line, the family it breaks on, and a loud-or-silent verdict.
+  Findings from families the machine did not run are marked
+  unverified.
+- **env** creates or updates a [devenv](https://devenv.sh/)
+  development environment, reading the devenv option docs before
+  writing a line, every time. Detects languages from manifests,
+  writes `devenv.nix`, `devenv.yaml`, and the direnv `.envrc`, and
+  evaluates before reporting success.
+- **switch** builds a machine definition, shows the closure diff
+  against the current generation, and activates only after
+  confirmation. Prints the rollback command on failure. Never runs
+  `sudo`, never bootstraps.
 
 ## Why this exists
 
