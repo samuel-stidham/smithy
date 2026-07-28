@@ -284,11 +284,13 @@ MIT. See [LICENSE](LICENSE) for the full text.
 
 ## Inspiration
 
-forge took inspiration from
+forge began as a leaner answer to
 [Shipyard](https://github.com/mattsears18/shipyard), an autonomous
-engineering loop plugin for Claude Code. Shipyard is a far more
-ambitious project: parallel worker pools in isolated worktrees,
-autonomous triage, audit pipelines, and auto-merging PRs. forge stays
-deliberately leaner. If our needs grow into parallel agents and
-automated backlogs, we will adopt Shipyard rather than rebuild it.
-Different tools fit different stages.
+engineering loop plugin for Claude Code. The two have since diverged
+in philosophy, and adopting Shipyard is no longer the growth path.
+Shipyard scales autonomy: parallel worker pools, autonomous triage,
+auto-merging PRs. smithy constrains it. Reviews and audits are
+read-only, fixes require proof, automation never merges or
+publishes, and every verb stops at a documented boundary. The bet:
+one disciplined, evidence-gated process, identical on every host,
+beats a faster loop with fewer brakes.
