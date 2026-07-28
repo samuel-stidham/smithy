@@ -1,0 +1,5 @@
+interface:
+  display_name: "Forge: Verify"
+  short_description: "Run the repo's own QA checks from narrowest to broadest without changing any file. Report every command and result."
+policy:
+  allow_implicit_invocation: false

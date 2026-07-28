@@ -1,0 +1,5 @@
+interface:
+  display_name: "Forge: Ship"
+  short_description: "Run pre-flight checks, push the branch, and open a draft PR with a structured body."
+policy:
+  allow_implicit_invocation: false

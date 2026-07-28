@@ -1,0 +1,5 @@
+interface:
+  display_name: "Forge: Debug"
+  short_description: "Start from a symptom, reproduce it, isolate the cause, fix it, and prove the fix with a regression test."
+policy:
+  allow_implicit_invocation: false

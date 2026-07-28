@@ -1,0 +1,5 @@
+interface:
+  display_name: "Draft: Docs"
+  short_description: "Write or update repo documentation. READMEs, ADRs, API references, and guides, verified against the code they describe."
+policy:
+  allow_implicit_invocation: false

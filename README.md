@@ -1,11 +1,11 @@
 # smithy
 
 smithy is a marketplace of lean, repo-agnostic plugins for
-[Claude Code](https://claude.com/claude-code): six plugins, one set
-of shared rules. It makes no assumptions about
-language, framework, or tooling. Every verb detects what it needs from
-the repo itself: manifest files, lockfiles, existing patterns, and the
-repo's own agent instructions. It never requires per-repo
+[Claude Code](https://claude.com/claude-code), ChatGPT, and Codex:
+six plugins, one set of shared rules. It makes no assumptions about
+language, framework, or tooling. Every verb detects what it needs
+from the repo itself: manifest files, lockfiles, existing patterns,
+and the repo's own agent instructions. It never requires per-repo
 configuration.
 
 ## The family
@@ -21,11 +21,14 @@ configuration.
 
 foundry, draft, anvil, bellows, and temper require forge. They borrow its shared
 skills by name (`forge:clean-architecture`, `forge:writing-style`,
-`forge:citations`, `forge:web-browsing`) and declare the dependency
-in their manifests, so installing any of them pulls forge in
-automatically. forge depends on nothing.
+`forge:citations`, `forge:web-browsing`). Claude Code installs forge
+from the dependency declared in each leaf manifest. ChatGPT and Codex
+users install forge first; the OpenAI plugin manifest does not expose
+Smithy's plugin-to-plugin dependency.
 
 ## Installation
+
+### Claude Code
 
 ```text
 /plugin marketplace add samuel-stidham/smithy
@@ -45,7 +48,28 @@ unattended jobs run, and temper wherever the code faces users or
 handles secrets. One line in that repo's
 `.claude/settings.local.json` does it, or use the `/plugin` menu.
 
+### Codex and ChatGPT
+
+Add the Git marketplace and install forge before any leaf plugin:
+
+```text
+codex plugin marketplace add samuel-stidham/smithy --ref main
+codex plugin add forge@smithy
+codex plugin add foundry@smithy
+codex plugin add draft@smithy
+codex plugin add anvil@smithy
+codex plugin add bellows@smithy
+codex plugin add temper@smithy
+```
+
+Use `/plugins` to browse the marketplace in Codex CLI. The same repo
+marketplace appears in ChatGPT Work or Codex in the desktop app when
+the checkout is the active project. Start a new chat or Codex session
+after installing a plugin.
+
 ## Updating
+
+Claude Code:
 
 ```text
 /plugin marketplace update smithy
@@ -55,9 +79,20 @@ Then update the plugin from the `/plugin` menu and restart Claude
 Code. Each plugin versions independently, tagged
 `{plugin}--v{version}`.
 
+Codex:
+
+```text
+codex plugin marketplace upgrade smithy
+codex plugin add forge@smithy
+```
+
+Repeat the install command for each enabled leaf plugin, then start a
+new session.
+
 ## forge
 
-The verbs, invoked as `/forge:<name>`:
+Invoke a verb as `/forge:<name>` in Claude Code,
+`$forge:<name>` in Codex, or `@forge:<name>` in ChatGPT:
 
 - **do-work** executes a development task end to end. It orients in
   the repo, shows a short plan, branches, implements through capped
@@ -67,7 +102,14 @@ The verbs, invoked as `/forge:<name>`:
 - **debug** takes a symptom to a proven fix. It reproduces first,
   isolates by shrinking and bisecting, and names the root cause
   apart from the trigger that revealed it. The regression test runs
-  both ways before it counts.
+  both ways before it counts. If nothing proves the symptom, it
+  stops with zero production changes.
+- **prove** takes exactly one finding to a verdict: proven, or
+  rejected and downgraded. It never modifies production code, and
+  it stops after the proof instead of fixing anything.
+- **verify** runs the repo's own QA checks, narrowest to broadest,
+  in check-only modes. It introduces no changes, and a check that
+  mutates files is itself a reported finding.
 - **refactor** restructures code without changing behavior. It
   builds the safety net first, writing characterization tests where
   coverage is thin. Then it moves in small commits that each pass
@@ -78,9 +120,9 @@ The verbs, invoked as `/forge:<name>`:
   one recommendation. Runners-up get the reason they lost.
 - **review** audits the current branch's diff against its base
   through six lenses: architecture, code quality, tests, security,
-  docs, and scope. It runs in an isolated subagent that reads only
-  the diff and the repo, and it ends with exactly one verdict:
-  **SHIP IT**, **NEEDS WORK**, or **RETHINK**.
+  docs, and scope. Claude runs it in an isolated subagent; other
+  hosts preserve its read-only boundary. It ends with exactly one
+  verdict: **SHIP IT**, **NEEDS WORK**, or **RETHINK**.
 - **ship** runs pre-flight checks, pushes the branch, and opens a
   draft PR with a What/Why/How/Testing body built from your actual
   commits. Without `gh` it still pushes and prints a copy-ready body.
@@ -89,12 +131,22 @@ The verbs, invoked as `/forge:<name>`:
   tags that plugin's release in the format documented under
   Updating. It always confirms before tagging.
 - **test-harness** generates an MCP server exposing the project's
-  domain and application layers as tools, so Claude can drive the app
-  headlessly for QA. It builds the harness only.
+  domain and application layers as tools, so the active coding agent
+  can drive the app headlessly for QA. It builds the harness only.
+- **eval** runs scripted behavioral scenarios against plugin verbs
+  in headless sessions, one fresh scratch repo per scenario. Tree
+  hashes decide whether a boundary held, and transcripts get graded
+  against the verbs' own documented rules. Claude loads the package
+  under test directly; Codex uses ephemeral `codex exec --json`
+  sessions and verifies each required plugin is installed, enabled,
+  and current before it runs. Scenario files live in the repo's
+  `evals/` directory.
 
 The shared reference skills, loaded by name: `clean-architecture`
 (the owner's positions plus test-based enforcement of the dependency
-rule), `clean-code` (judgment cues over metrics), `citations`
+rule), `clean-code` (judgment cues over metrics),
+`change-control` (evidence grades, finding classifications, the
+default repair budget, and stopping conditions), `citations`
 (verified, reader-accessible sources in APA style, with
 reference-ledger support), `conventional-commits` (commit and PR
 title format), `writing-style` (the rules that keep prose human),
@@ -199,11 +251,11 @@ failure, idempotent runs.
   ecosystem's own audit tool, code at trust boundaries, and
   configuration. Findings rank by exploitability, and everything the
   audit skipped gets named.
-- **harden** fixes the findings in exploitability order, one commit
-  per fix, tests after each. Changes to authentication,
-  authorization, crypto, and session handling get confirmed before
-  they land. A leaked credential gets reported for human rotation,
-  never rotated by the plugin.
+- **harden** fixes exactly one proven finding per invocation, using
+  its existing proof as the acceptance test. Changes to
+  authentication, authorization, crypto, and session handling get
+  confirmed before they land. A leaked credential gets reported for
+  human rotation, never rotated by the plugin.
 
 Both verbs share the `security-baseline` skill: exploitability
 ranking, the secrets bar, validated trust boundaries, fail-closed

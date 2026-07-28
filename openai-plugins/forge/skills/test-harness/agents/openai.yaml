@@ -1,0 +1,5 @@
+interface:
+  display_name: "Forge: Test Harness"
+  short_description: "Generate an MCP server exposing the project's domain and application layers for headless testing."
+policy:
+  allow_implicit_invocation: false

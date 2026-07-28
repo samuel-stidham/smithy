@@ -10,7 +10,8 @@ disable-model-invocation: true
 Audit the repo's security posture and report what an attacker would
 actually use. Read-only: findings are the deliverable, and fixes are
 `/temper:harden`. The `security-baseline` skill is the standard
-every finding is judged against.
+every finding is judged against. The `forge:change-control` skill
+supplies the claim grades, the proof bar, and the classifications.
 
 The scope is: $ARGUMENTS. If empty, the whole repo.
 
@@ -40,6 +41,8 @@ Work each pass separately. Cite file and line. No generic advice.
 
 Rank by exploitability per the `security-baseline` skill. Reachable
 beats theoretical. For each finding: file, line, how an attacker
-reaches it, and what harden should do about it. Mark every
-unverified claim. Name what the audit did not examine. A clean tool
-pass is a fact, never a verdict.
+reaches it, its `forge:change-control` classification and evidence,
+and what harden should do about it. Never call an unproven claim a
+vulnerability. Mark every unverified claim. Name what the audit did
+not examine. A clean tool pass is a fact, never a verdict. End by
+recommending at most one next proof through `/forge:prove`.

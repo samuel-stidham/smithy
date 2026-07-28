@@ -1,0 +1,5 @@
+interface:
+  display_name: "Temper: Harden"
+  short_description: "Fix exactly one proven security finding with the smallest correct mitigation. Credential rotation stays human."
+policy:
+  allow_implicit_invocation: false

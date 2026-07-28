@@ -1,0 +1,5 @@
+interface:
+  display_name: "Forge: Evaluate"
+  short_description: "Evaluate a library, tool, or approach against stated criteria, with cited research and an optional spike. Ends in one recommendation."
+policy:
+  allow_implicit_invocation: false

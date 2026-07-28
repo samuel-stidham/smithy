@@ -1,0 +1,5 @@
+interface:
+  display_name: "Bellows: Routine"
+  short_description: "Define a recurring job with explicit boundaries, dry-run it, then register it on the scheduler the environment offers."
+policy:
+  allow_implicit_invocation: false

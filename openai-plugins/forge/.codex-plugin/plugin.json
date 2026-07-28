@@ -1,0 +1,40 @@
+{
+  "name": "forge",
+  "version": "1.3.0",
+  "description": "Repo-agnostic core engineering workflow. Executes development tasks, debugs from symptoms, proves findings, verifies without mutating, refactors safely, evaluates options, reviews diffs, ships draft PRs, cuts releases, generates MCP test harnesses, and runs behavioral scenario evals.",
+  "author": {
+    "name": "Samuel Stidham"
+  },
+  "homepage": "https://github.com/samuel-stidham/smithy",
+  "repository": "https://github.com/samuel-stidham/smithy",
+  "license": "MIT",
+  "keywords": [
+    "workflow",
+    "debugging",
+    "refactoring",
+    "code-review",
+    "pull-requests",
+    "clean-architecture",
+    "clean-code",
+    "citations",
+    "web-browsing",
+    "browserbase"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Forge",
+    "shortDescription": "Evidence-first engineering workflows",
+    "longDescription": "Repo-agnostic core engineering workflow. Executes development tasks, debugs from symptoms, proves findings, verifies without mutating, refactors safely, evaluates options, reviews diffs, ships draft PRs, cuts releases, generates MCP test harnesses, and runs behavioral scenario evals.",
+    "developerName": "Samuel Stidham",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Implement this change end to end.",
+      "Debug this failure and prove the fix.",
+      "Review the current branch."
+    ]
+  }
+}

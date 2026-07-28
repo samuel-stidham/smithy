@@ -1,0 +1,37 @@
+{
+  "name": "temper",
+  "version": "0.2.0",
+  "description": "Security plugin for the smithy family. Audits repos for secrets, vulnerable dependencies, and unsafe code, then hardens one proven finding at a time.",
+  "author": {
+    "name": "Samuel Stidham"
+  },
+  "homepage": "https://github.com/samuel-stidham/smithy",
+  "repository": "https://github.com/samuel-stidham/smithy",
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "audit",
+    "hardening",
+    "secrets",
+    "dependencies",
+    "vulnerabilities",
+    "trust-boundaries"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Temper",
+    "shortDescription": "Audit and harden software",
+    "longDescription": "Security plugin for the smithy family. Audits repos for secrets, vulnerable dependencies, and unsafe code, then hardens one proven finding at a time. Requires the Forge plugin for shared Smithy skills.",
+    "developerName": "Samuel Stidham",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Audit this repository for security issues.",
+      "Prove this suspected vulnerability.",
+      "Harden this proven finding."
+    ]
+  }
+}

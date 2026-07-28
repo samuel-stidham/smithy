@@ -1,0 +1,38 @@
+{
+  "name": "draft",
+  "version": "1.1.0",
+  "description": "Writing studio for the smithy family. Writes books, poetry, technical articles, and repo documentation, and compiles ebooks for publishing. Requires the forge plugin for shared skills.",
+  "author": {
+    "name": "Samuel Stidham"
+  },
+  "homepage": "https://github.com/samuel-stidham/smithy",
+  "repository": "https://github.com/samuel-stidham/smithy",
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "prose",
+    "documentation",
+    "poetry",
+    "technical-writing",
+    "ebooks",
+    "epub",
+    "publishing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Draft",
+    "shortDescription": "Write, document, and publish",
+    "longDescription": "Writing studio for the smithy family. Writes books, poetry, technical articles, and repo documentation, and compiles ebooks for publishing. Requires the forge plugin for shared skills.",
+    "developerName": "Samuel Stidham",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Write this in the project's voice.",
+      "Create documentation verified against the code.",
+      "Build this manuscript for publishing."
+    ]
+  }
+}

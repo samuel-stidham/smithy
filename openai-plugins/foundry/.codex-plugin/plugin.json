@@ -1,0 +1,36 @@
+{
+  "name": "foundry",
+  "version": "1.0.1",
+  "description": "Product factory for the smithy family. Scaffolds complete Clean Architecture project templates and deploys them with OpenTofu. Requires the forge plugin for shared skills.",
+  "author": {
+    "name": "Samuel Stidham"
+  },
+  "homepage": "https://github.com/samuel-stidham/smithy",
+  "repository": "https://github.com/samuel-stidham/smithy",
+  "license": "MIT",
+  "keywords": [
+    "scaffolding",
+    "templates",
+    "clean-architecture",
+    "opentofu",
+    "deployment",
+    "infrastructure-as-code"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Foundry",
+    "shortDescription": "Scaffold and deploy clean projects",
+    "longDescription": "Product factory for the smithy family. Scaffolds complete Clean Architecture project templates and deploys them with OpenTofu. Requires the forge plugin for shared skills.",
+    "developerName": "Samuel Stidham",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Scaffold a clean project from this brief.",
+      "Add portable OpenTofu infrastructure.",
+      "Deploy this project safely."
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Foundry: Scaffold"
+  short_description: "Generate a complete, working Clean Architecture project template for a language and project type. Optional OpenTofu infrastructure."
+policy:
+  allow_implicit_invocation: false

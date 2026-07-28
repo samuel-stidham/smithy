@@ -1,7 +1,7 @@
 # smithy
 
-This repo is smithy, a Claude Code plugin marketplace holding six
-plugins that share one set of rules. It is installed
+This repo is smithy, a dual Claude Code and OpenAI plugin marketplace
+holding six plugins that share one set of rules. It is installed
 across every machine and repo Samuel works in, Hudl and personal
 alike, and must behave identically everywhere.
 
@@ -14,10 +14,11 @@ this file only. Never restate it in a pointer file.
 ## The six plugins
 
 - `plugins/forge/`: core engineering workflow. Verbs do-work, debug,
-  refactor, evaluate, review, ship, version, and test-harness, the
-  shared reference skills (writing-style, conventional-commits,
-  clean-code, clean-architecture, web-browsing, citations), and the
-  implementer agent. Enabled globally.
+  prove, verify, refactor, evaluate, review, ship, version,
+  test-harness, and eval, the shared reference skills (writing-style,
+  conventional-commits, clean-code, clean-architecture,
+  change-control, web-browsing, citations), and the implementer
+  agent. Enabled globally.
 - `plugins/foundry/`: product factory. Verbs scaffold and deploy,
   plus infrastructure-as-code. Enabled per repo.
 - `plugins/draft/`: writing studio. Verbs write, publish, and docs,
@@ -44,23 +45,35 @@ enablement, never a file reference.
 
 ## Structure
 
-There is no build step. Everything is prompt files. Each plugin has
-`.claude-plugin/plugin.json` with its own version,
-`skills/<name>/SKILL.md`, and optionally `agents/`. Verbs carry
+The canonical packages live under `plugins/`. Each has a Claude
+manifest at `.claude-plugin/plugin.json`, its
+`skills/<name>/SKILL.md` files, and optionally `agents/`. Verbs carry
 `disable-model-invocation: true` and are invoked as
 `/<plugin>:<name>`. Review additionally runs as a synchronous fork
 (`context: fork`, `background: false`). Reference skills carry
-`user-invocable: false` and load by name. The root
-`.claude-plugin/marketplace.json` lists all six plugins, and the
-leaf manifests declare `"dependencies": ["forge"]`. Each plugin
-keeps its own `CHANGELOG.md` beside its manifest. The root changelog
-holds pre-split history and repo-level changes only.
+`user-invocable: false` and load by name. The Claude marketplace is
+`.claude-plugin/marketplace.json`; its leaf manifests declare
+`"dependencies": ["forge"]`.
+
+`scripts/sync-openai-plugins.py` generates the OpenAI packages under
+`openai-plugins/` and the repo marketplace at
+`.agents/plugins/marketplace.json`. Generated skills remove
+Claude-only frontmatter, replace argument placeholders with the user
+request, and use `agents/openai.yaml` to keep verbs explicit-only.
+Never edit `openai-plugins/` or the OpenAI marketplace by hand. Run
+the sync script after changing a canonical skill or manifest, then
+run it with `--check`.
+
+Each plugin keeps its own `CHANGELOG.md` beside its canonical
+manifest. The root changelog holds pre-split history and repo-level
+changes only.
 
 ## Testing changes
 
 Claude Code reads plugins from a per-version cache under
-`~/.claude/plugins/cache/`, never this checkout. The plugins run only
-in Claude Code, so test there even when editing from another agent.
+`~/.claude/plugins/cache/`, never this checkout. Codex also installs
+marketplace plugins into its cache, so neither host should be tested
+by assuming it reads the canonical source files live.
 
 1. For real installs: commit, bump the plugin's version in its
    `plugin.json`, push, then run
@@ -71,8 +84,16 @@ in Claude Code, so test there even when editing from another agent.
    behavior matches the file.
 3. Test a reference skill through the verbs that name it (grep for
    it), or by exercising the behavior its description covers.
+4. Run `python3 scripts/sync-openai-plugins.py`, validate all six
+   generated plugins, and run the script again with `--check`.
+5. Add this checkout as a local Codex marketplace, install forge
+   before any leaf plugin, start a new thread, and exercise the
+   changed skill. OpenAI manifests do not declare Smithy's
+   plugin-to-plugin dependencies.
 
-There is no automated test suite. Testing means running the prompts
+Behavioral scenarios live in `evals/`, one file per protocol, and
+run as a repeatable gate through `/forge:eval` in Claude Code or
+`$forge:eval` in Codex. Everything else means running the prompts
 against real scenarios and judging the output.
 
 ## Repo-agnostic by design

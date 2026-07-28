@@ -1,0 +1,5 @@
+interface:
+  display_name: "Bellows: Ci"
+  short_description: "Author or update the repo's CI pipeline on its own provider, mirroring the gates the repo already runs locally."
+policy:
+  allow_implicit_invocation: false

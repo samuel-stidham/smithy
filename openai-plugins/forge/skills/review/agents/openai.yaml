@@ -1,0 +1,5 @@
+interface:
+  display_name: "Forge: Review"
+  short_description: "Audit the current branch's diff against its base. Verdict is SHIP IT, NEEDS WORK, or RETHINK."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Forge: Do Work"
+  short_description: "Execute a development task end to end. Plans, implements through subagents, tests, and stops before pushing."
+policy:
+  allow_implicit_invocation: false

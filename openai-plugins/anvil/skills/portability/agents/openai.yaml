@@ -1,0 +1,5 @@
+interface:
+  display_name: "Anvil: Portability"
+  short_description: "Distro-family audit of shell and package selection in a Nix repo. Every finding carries file, line, family, and a loud-or-silent verdict."
+policy:
+  allow_implicit_invocation: false

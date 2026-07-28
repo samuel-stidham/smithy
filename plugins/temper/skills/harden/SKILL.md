@@ -1,31 +1,39 @@
 ---
 name: harden
-description: Fix audit findings in exploitability order, one commit per fix, tests after each. Credential rotation stays human.
-argument-hint: "[findings to fix, defaults to the latest audit]"
+description: Fix exactly one proven security finding with the smallest correct mitigation. Credential rotation stays human.
+argument-hint: "[one proven finding, with its proof]"
 disable-model-invocation: true
 ---
 
 # /temper:harden
 
-Fix security findings, most exploitable first. Input is
-`/temper:audit` output, a pasted report, or a fresh quick pass when
-neither exists.
+Fix exactly one proven security finding. Input is a single finding
+with its proof, from `/temper:audit`, `/forge:prove`, or a pasted
+report carrying equivalent evidence. The `forge:change-control` and
+`security-baseline` skills govern the evidence bar and the standard.
 
-The findings are: $ARGUMENTS. If empty, use the latest audit in the
-conversation, or run a quick audit pass first.
+The finding is: $ARGUMENTS. If empty, stop and recommend
+`/temper:audit`. If it holds more than one finding, ask which single
+one to fix. If it lacks proof per `forge:change-control`, stop and
+recommend `/forge:prove`.
 
 ## Workflow
 
-1. **Order by exploitability** per the `security-baseline` skill.
-2. **Branch** as `fix/{short-kebab-description}`, with types per
+1. **Branch** as `fix/{short-kebab-description}`, with types per
    `forge:conventional-commits`.
-3. **Fix one finding per commit.** Run the repo's tests after each.
-   A fix that breaks behavior is not done.
+2. **Apply the smallest correct mitigation**, within the
+   `forge:change-control` default repair budget.
+3. **Use the existing proof as the acceptance test.** It must fail
+   before the fix and pass after. Then run the repo's tests. A fix
+   that breaks behavior is not done.
 4. **Confirm the risky ones first.** Changes to authentication,
    authorization, crypto, and session handling get shown to the
    user before they land.
-5. **Report** per `forge:writing-style`: fixed, deferred, and
-   rejected findings, each with its reason.
+5. **Report** per `forge:writing-style`: the finding, the
+   mitigation, the proof run both ways, and its reasoning.
+
+Other audit findings stay untouched, however tempting. Each gets
+its own proof and its own invocation.
 
 ## The rotation rule
 
