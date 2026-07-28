@@ -1,0 +1,5 @@
+interface:
+  display_name: "Anvil: Check"
+  short_description: "Static gate for a Nix repo. Per-dialect shell checks plus flake evaluation, building nothing."
+policy:
+  allow_implicit_invocation: false

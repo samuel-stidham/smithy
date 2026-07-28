@@ -1,0 +1,5 @@
+interface:
+  display_name: "Bellows: Watch"
+  short_description: "Babysit long-running external work, such as a PR in CI, a deploy, or a migration, until it resolves."
+policy:
+  allow_implicit_invocation: false

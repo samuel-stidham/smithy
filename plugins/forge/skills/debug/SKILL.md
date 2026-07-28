@@ -15,11 +15,16 @@ The symptom is: $ARGUMENTS
 
 If `$ARGUMENTS` is empty, ask what is broken.
 
+The `change-control` skill governs evidence and scope. Explicit
+invocation authorizes prove, then fix, then verify, for one symptom
+only. Unrelated findings get reported, never touched.
+
 ## Workflow
 
 1. **Reproduce first.** No hypothesis and no fix before the failure
-   happens in front of you. If reproduction is impossible, say so,
-   say why, and mark every later claim as a hypothesis.
+   happens in front of you. If reproduction and every other valid
+   proof fail, stop with zero production changes. Say why. Never
+   continue into a hypothetical repair.
 2. **Orient.** The repo's agent instructions, the failing area's
    code, and its recent history. Regressions live in diffs, so find
    when it last worked.
@@ -31,10 +36,11 @@ If `$ARGUMENTS` is empty, ask what is broken.
    from the trigger that revealed it. A fix aimed at the trigger is
    a recurrence scheduled.
 5. **Fix small.** The smallest change that removes the cause, per
-   the `clean-code` skill. Fix causes, not tests.
+   the `clean-code` skill and within the `change-control` default
+   repair budget. Fix causes, not tests.
 6. **Prove it.** A regression test that fails before the fix and
-   passes after. Run it both ways and say you did. Then run the
-   repo's full test suite.
+   passes after. Run it both ways and say you did. Only then run
+   the repo's full test suite.
 7. **Report** per the `writing-style` skill: the cause chain, the
    fix, the proof, and anything suspicious found along the way.
 

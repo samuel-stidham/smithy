@@ -13,6 +13,10 @@ Audit the changes on the current branch against its base branch. This is
 a diff review, scoped to what changed, with enough surrounding context
 to judge whether it fits.
 
+This command is read-only. It never edits files, adds tests, runs
+mutating commands, or fixes findings. The `change-control` skill
+governs its evidence grades and classifications.
+
 ## Setup
 
 1. Base branch: `$ARGUMENTS` if given. Otherwise detect the repo's
@@ -43,6 +47,20 @@ specific issues. Cite file and line. No generic advice.
 - **Scope.** The diff matches the intent its branch name and commit
   subjects state, no more and no less. Flag unrequested changes and
   quiet scope creep.
+
+## Findings
+
+Return at most five findings, ordered by severity. Each carries: an
+ID, the file and line, the violated rule, the reachable path, the
+triggering preconditions, the existing protection examined, the
+impact, the evidence, a confidence level, its `change-control`
+classification, the proof method, and the estimated repair surface.
+Style preferences and optional hardening never block.
+
+## Recommended next proof
+
+Before the verdict, name the one finding most worth proving and the
+`/forge:prove` invocation for it. When nothing needs proof, say so.
 
 ## Verdict
 

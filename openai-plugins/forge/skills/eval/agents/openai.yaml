@@ -1,0 +1,5 @@
+interface:
+  display_name: "Forge: Eval"
+  short_description: "Run scripted behavioral scenarios against plugin verbs in headless sessions. Tree hashes decide, transcripts get graded."
+policy:
+  allow_implicit_invocation: false

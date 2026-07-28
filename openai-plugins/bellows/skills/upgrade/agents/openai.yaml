@@ -1,0 +1,5 @@
+interface:
+  display_name: "Bellows: Upgrade"
+  short_description: "Upgrade dependencies in risk-ordered batches, testing after each batch, with majors researched before they move."
+policy:
+  allow_implicit_invocation: false

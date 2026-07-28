@@ -1,0 +1,5 @@
+interface:
+  display_name: "Foundry: Deploy"
+  short_description: "Deploy the current project using its own infrastructure. Detects OpenTofu configs, Dockerfile, and release steps, then applies them safely."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Forge: Prove"
+  short_description: "Prove or reject exactly one finding or suspected defect. Never modifies production code. Ends at a verdict, never a fix."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Draft: Publish"
+  short_description: "Compile a writing project into publishable ebook formats, EPUB for KDP and Nook. Local files only, no uploads."
+policy:
+  allow_implicit_invocation: false

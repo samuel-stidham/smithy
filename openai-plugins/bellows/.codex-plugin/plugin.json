@@ -1,0 +1,38 @@
+{
+  "name": "bellows",
+  "version": "0.1.0",
+  "description": "Recurring automation plugin for the smithy family. Defines scheduled routines, watches long-running work, authors CI pipelines, and upgrades dependencies in tested batches.",
+  "author": {
+    "name": "Samuel Stidham"
+  },
+  "homepage": "https://github.com/samuel-stidham/smithy",
+  "repository": "https://github.com/samuel-stidham/smithy",
+  "license": "MIT",
+  "keywords": [
+    "automation",
+    "scheduling",
+    "routines",
+    "ci",
+    "pipelines",
+    "dependencies",
+    "upgrades",
+    "watch"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Bellows",
+    "shortDescription": "Create safe recurring automation",
+    "longDescription": "Recurring automation plugin for the smithy family. Defines scheduled routines, watches long-running work, authors CI pipelines, and upgrades dependencies in tested batches. Requires the Forge plugin for shared Smithy skills.",
+    "developerName": "Samuel Stidham",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Turn this chore into a safe routine.",
+      "Watch this work until it resolves.",
+      "Upgrade dependencies in tested batches."
+    ]
+  }
+}

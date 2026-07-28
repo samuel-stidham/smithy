@@ -4,6 +4,27 @@ As of the 1.0.0 releases, each plugin keeps its own changelog beside
 its manifest (`plugins/<name>/CHANGELOG.md`). This file holds the
 pre-split history and repo-level changes only.
 
+## Unreleased
+
+Add a generated OpenAI-native marketplace for ChatGPT and Codex while
+keeping the Claude Code packages canonical. The sync script preserves
+explicit-only verbs with OpenAI skill policy, mirrors plugin versions
+and resources, and verifies generated packages have not drifted.
+
+The generated `$forge:eval` workflow runs behavioral scenarios in
+ephemeral `codex exec --json` sessions, verifies installed plugin
+identity before testing, and grades Codex JSONL transcripts without
+changing the user's plugin configuration.
+
+## forge--v1.3.0
+
+The repo gains `evals/`, holding behavioral scenario specs run as a
+repeatable gate through the new `/forge:eval` verb. The first file,
+`evals/change-control.md`, scripts the five change-control
+scenarios: review does not fix, prove rejects the irreproducible,
+debug stops without reproduction, harden refuses batches and
+unproven findings, verify never runs auto-fix.
+
 ## bellows--v0.1.0, temper--v0.1.0, forge--v1.1.0, draft--v1.1.0
 
 The marketplace gains two plugins, bringing the count to six:

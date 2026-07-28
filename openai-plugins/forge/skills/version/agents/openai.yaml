@@ -1,0 +1,5 @@
+interface:
+  display_name: "Forge: Version"
+  short_description: "Cut a release. Bump the version, update VERSION.md and CHANGELOG.md, tag, and push the tag."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Forge: Refactor"
+  short_description: "Behavior-preserving restructuring in small proven steps. Safety net first, and behavior changes never mix in."
+policy:
+  allow_implicit_invocation: false

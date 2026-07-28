@@ -9,7 +9,7 @@
     {
       "name": "forge",
       "source": "./plugins/forge",
-      "description": "Core engineering workflow: execute dev tasks, debug, refactor, evaluate options, review diffs, ship draft PRs, cut releases, and generate MCP test harnesses."
+      "description": "Core engineering workflow: execute dev tasks, debug, prove findings, verify without mutating, refactor, evaluate options, review diffs, ship draft PRs, cut releases, generate MCP test harnesses, and run behavioral scenario evals."
     },
     {
       "name": "foundry",
@@ -34,7 +34,7 @@
     {
       "name": "temper",
       "source": "./plugins/temper",
-      "description": "Security: repo-wide audits across secrets, dependencies, code, and configuration, then hardening in exploitability order. Requires forge."
+      "description": "Security: repo-wide audits across secrets, dependencies, code, and configuration, then hardening one proven finding at a time. Requires forge."
     }
   ]
 }

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Anvil: Switch"
+  short_description: "Build a machine definition, show the closure diff, and activate only on confirmation. Prints the rollback on failure."
+policy:
+  allow_implicit_invocation: false

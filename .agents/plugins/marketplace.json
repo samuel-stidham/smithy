@@ -1,0 +1,80 @@
+{
+  "name": "smithy",
+  "interface": {
+    "displayName": "Smithy"
+  },
+  "plugins": [
+    {
+      "name": "forge",
+      "source": {
+        "source": "local",
+        "path": "./openai-plugins/forge"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "foundry",
+      "source": {
+        "source": "local",
+        "path": "./openai-plugins/foundry"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "draft",
+      "source": {
+        "source": "local",
+        "path": "./openai-plugins/draft"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "anvil",
+      "source": {
+        "source": "local",
+        "path": "./openai-plugins/anvil"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "bellows",
+      "source": {
+        "source": "local",
+        "path": "./openai-plugins/bellows"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "temper",
+      "source": {
+        "source": "local",
+        "path": "./openai-plugins/temper"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "name": "temper",
   "displayName": "Temper",
-  "description": "Security plugin for the smithy family. Audits repos for secrets, vulnerable dependencies, and unsafe code, then hardens what the audit finds.",
-  "version": "0.1.0",
+  "description": "Security plugin for the smithy family. Audits repos for secrets, vulnerable dependencies, and unsafe code, then hardens one proven finding at a time.",
+  "version": "0.2.0",
   "dependencies": ["forge"],
   "author": {
     "name": "Samuel Stidham"
