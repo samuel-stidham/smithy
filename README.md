@@ -14,14 +14,15 @@ configuration.
 | --- | --- | --- |
 | **forge** | Core engineering workflow: execute tasks, debug, refactor, evaluate options, review diffs, ship draft PRs, cut releases, generate test harnesses. | Enabled globally. |
 | **foundry** | Product factory: scaffold complete Clean Architecture project templates, deploy them with OpenTofu. | Enabled per repo. |
-| **draft** | Writing studio: books, poetry, technical articles, and repo documentation, with ebook compilation. | Enabled per repo. |
+| **draft** | Writing studio: books, poetry, technical articles, and repo documentation, with adversarial prose review and ebook compilation. | Enabled per repo. |
 | **anvil** | Nix environments: shell gates, distro-family portability audits, devenv environments, confirmed activation. | Enabled per repo. |
 | **bellows** | Recurring automation: scheduled routines, watches over long-running work, CI pipelines, dependency upgrades. | Enabled per repo. |
 | **temper** | Security: repo-wide audits across secrets, dependencies, code, and configuration, then hardening in exploitability order. | Enabled per repo. |
 
-foundry, draft, anvil, bellows, and temper require forge. They borrow its shared
-skills by name (`forge:clean-architecture`, `forge:writing-style`,
-`forge:citations`, `forge:web-browsing`). Claude Code installs forge
+foundry, draft, anvil, bellows, and temper require forge. They
+borrow its shared skills by name (`forge:clean-architecture`,
+`forge:writing-style`, `forge:citations`, `forge:web-browsing`,
+`forge:adversarial-review`). Claude Code installs forge
 from the dependency declared in each leaf manifest. ChatGPT and Codex
 users install forge first; the OpenAI plugin manifest does not expose
 Smithy's plugin-to-plugin dependency.
@@ -142,11 +143,14 @@ Invoke a verb as `/forge:<name>` in Claude Code,
   and current before it runs. Scenario files live in the repo's
   `evals/` directory.
 
-The shared reference skills, loaded by name: `clean-architecture`
-(the owner's positions plus test-based enforcement of the dependency
-rule), `clean-code` (judgment cues over metrics),
-`change-control` (evidence grades, finding classifications, the
-default repair budget, and stopping conditions), `citations`
+The shared reference skills, loaded by name: `adversarial-review`
+(the hostile fresh-context reviewer every review verb dispatches
+through, with lens packs per artifact class, severity findings, and
+one verdict), `clean-architecture` (the owner's positions plus
+test-based enforcement of the dependency rule), `clean-code`
+(judgment cues over metrics), `change-control` (evidence grades,
+finding classifications, the default repair budget, and stopping
+conditions), `citations`
 (verified, reader-accessible sources in APA style, with
 reference-ledger support), `conventional-commits` (commit and PR
 title format), `writing-style` (the rules that keep prose human),
@@ -201,6 +205,11 @@ budget).
 - **docs** writes repo documentation verified against the code it
   describes: READMEs, ADRs, API references, and guides. Commands
   shown in a doc get run when safe, and unrun ones are marked.
+- **review** runs a hostile expert read of prose files through
+  `forge:adversarial-review` with the prose lens pack. The lenses:
+  factual accuracy, citation integrity, steelman integrity, writing
+  style, and continuity. It reports severity findings and one
+  verdict, and it never edits.
 
 ## anvil
 

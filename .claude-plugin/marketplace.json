@@ -19,7 +19,7 @@
     {
       "name": "draft",
       "source": "./plugins/draft",
-      "description": "Writing studio: books, poetry, technical articles, and repo documentation, with ebook compilation for publishing. Requires forge."
+      "description": "Writing studio: books, poetry, technical articles, and repo documentation, with adversarial prose review and ebook compilation for publishing. Requires forge."
     },
     {
       "name": "anvil",

@@ -1,5 +1,16 @@
 # Changelog
 
+## draft--v1.2.0
+
+### Added
+
+- `/draft:review`: adversarial review of prose files through
+  `forge:adversarial-review` with the prose lens pack. The lenses:
+  factual accuracy, citation integrity, steelman integrity, writing
+  style, and continuity. Takes a file path or glob, reports numbered
+  severity findings and one verdict, never edits, and never chains
+  into write.
+
 ## draft--v1.1.0
 
 ### Added

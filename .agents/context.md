@@ -17,12 +17,12 @@ this file only. Never restate it in a pointer file.
   prove, verify, refactor, evaluate, review, ship, version,
   test-harness, and eval, the shared reference skills (writing-style,
   conventional-commits, clean-code, clean-architecture,
-  change-control, web-browsing, citations), and the implementer
-  agent. Enabled globally.
+  change-control, adversarial-review, web-browsing, citations), and
+  the implementer agent. Enabled globally.
 - `plugins/foundry/`: product factory. Verbs scaffold and deploy,
   plus infrastructure-as-code. Enabled per repo.
-- `plugins/draft/`: writing studio. Verbs write, publish, and docs,
-  plus creative and technical-writing. Enabled per repo.
+- `plugins/draft/`: writing studio. Verbs write, publish, docs, and
+  review, plus creative and technical-writing. Enabled per repo.
 - `plugins/anvil/`: Nix environments. Verbs check, portability, env,
   and switch, plus nix-conventions, shell-portability,
   shell-dialects, parity, and devenv. Enabled per repo, in machine
@@ -49,8 +49,8 @@ The canonical packages live under `plugins/`. Each has a Claude
 manifest at `.claude-plugin/plugin.json`, its
 `skills/<name>/SKILL.md` files, and optionally `agents/`. Verbs carry
 `disable-model-invocation: true` and are invoked as
-`/<plugin>:<name>`. Review additionally runs as a synchronous fork
-(`context: fork`, `background: false`). Reference skills carry
+`/<plugin>:<name>`. The review verbs additionally run as synchronous
+forks (`context: fork`, `background: false`). Reference skills carry
 `user-invocable: false` and load by name. The Claude marketplace is
 `.claude-plugin/marketplace.json`; its leaf manifests declare
 `"dependencies": ["forge"]`.

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Draft: Review"
+  short_description: "Adversarial review of prose files through the prose lens pack. Verdict is SHIP IT, NEEDS WORK, or RETHINK."
+policy:
+  allow_implicit_invocation: false

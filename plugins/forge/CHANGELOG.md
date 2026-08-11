@@ -1,5 +1,24 @@
 # Changelog
 
+## forge--v1.4.0
+
+### Added
+
+- `adversarial-review` reference skill: the shared review mechanism
+  any verb can dispatch through. A hostile fresh-context reviewer
+  with a written brief, numbered severity findings, one verdict, and
+  a hard no-edit rule. Lens packs live in on-demand files under
+  `lenses/`, code and prose to start. Detection selects the pack,
+  with the calling verb as the tiebreak.
+
+### Changed
+
+- review dispatches through `adversarial-review` with the code lens
+  pack. The six lenses moved into the pack verbatim. The interface,
+  the diff-only reading scope, and the verdict behavior are
+  unchanged. Each finding now carries an explicit severity label
+  through the shared output contract.
+
 ## forge--v1.3.1
 
 ### Fixed
