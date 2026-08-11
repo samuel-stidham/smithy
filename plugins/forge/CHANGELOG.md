@@ -1,5 +1,15 @@
 # Changelog
 
+## forge--v1.3.1
+
+### Fixed
+
+- `change-control` no longer reads as one pull request per fix. A new
+  batching section lets a branch, pull request, or release carry many
+  fixes. Each fix keeps its own scope, budget, evidence, and commit.
+  The repair budget and the multi-issue stopping condition now bound
+  one fix instead of the whole branch.
+
 ## forge--v1.3.0
 
 ### Added

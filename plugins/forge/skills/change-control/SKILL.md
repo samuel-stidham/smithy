@@ -68,7 +68,11 @@ Report first:
 
 ## The default repair budget
 
-One invocation fixes one independent problem, within:
+The budget bounds one fix. It does not bound a branch, a pull request,
+or a release. Its purpose is to keep a single edit from sprawling into
+unrelated code.
+
+One fix addresses one independent problem, within:
 
 - at most three production files
 - at most 150 changed production lines
@@ -77,6 +81,26 @@ One invocation fixes one independent problem, within:
 
 An explicit user or repository instruction may override the budget.
 Nothing else may.
+
+## Batching fixes into a release
+
+A branch, a pull request, and a release may each carry many fixes.
+Releases normally bundle bug fixes, enhancements, and occasionally new
+features. Nothing here requires one pull request per fix, and no verb
+may imply otherwise.
+
+Each fix is still scoped on its own:
+
+- Work one problem at a time and finish it before starting the next.
+- Keep each fix separable in the history, ideally its own commit.
+- Verify each fix against its own evidence, never as a batch.
+- Apply the budget to each fix, rather than summing it across the
+  branch.
+- Report the running list when several fixes land together, so a
+  reviewer sees what each one covers.
+
+Bundling is a packaging decision. Scoping is a correctness one. A
+batch of fixes never licenses one sprawling edit.
 
 ## Stopping conditions
 
@@ -89,8 +113,11 @@ these appears:
 - an API, schema, migration, or compatibility change surfaces
 - a documented invariant must change
 - an unrelated failure is discovered
-- more than one independent issue would be changed
+- a single fix would grow to cover a second independent issue
 - another operating mode is required
+
+The last condition bounds one fix, not the branch it lands on. Finish
+the fix in hand, report it, then open the next one.
 
 ## Verification never mutates
 
