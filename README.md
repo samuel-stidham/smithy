@@ -157,6 +157,21 @@ title format), `writing-style` (the rules that keep prose human),
 and `web-browsing` (the browse CLI, with a Browserbase remote-session
 budget).
 
+### Security layers
+
+Security runs in three layers, each with its own timing, and forge
+owns only the middle one. Anthropic's official `security-guidance`
+plugin watches every edit in real time. It runs pattern warnings on
+edits, an LLM diff review each turn, and an agentic commit review.
+`/forge:review` applies the repo-specific security judgment no
+general scanner has, and reports whether `security-guidance` covers
+the session. `claude-security`, Anthropic's official multi-agent
+scanner, is the deep on-demand pass before a release, and
+`/forge:version` recommends it for deployable repos. smithy bundles
+neither official plugin and never assumes they are installed. It
+detects and defers. `/temper:audit` stays the repo-wide posture
+audit, outside these diff-and-release layers.
+
 ## foundry
 
 - **scaffold** generates a complete, working Clean Architecture

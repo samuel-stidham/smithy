@@ -30,7 +30,14 @@ explicit version like `1.2.3`. If empty, ask.
 ## Workflow
 
 1. Report the current and new version. Tag only after the user
-   confirms.
+   confirms. When the repo holds deployable or sellable code, add
+   one line to that confirmation. Detect this from the tree itself:
+   infra directories, a Dockerfile, build artifacts, or a manifest
+   that publishes to a registry. The line recommends an on-demand
+   `claude-security@claude-plugins-official` scan before tagging.
+   Note the scan runs a session-scale multi-agent workflow and needs
+   Python 3.9 or newer. Recommendation only: never run the scan, and
+   never block the tag on it.
 2. Update the version where it lives: the plugin's `plugin.json` in a
    marketplace monorepo, otherwise `VERSION.md` when present plus
    known manifest files. Never search-and-replace across the repo.

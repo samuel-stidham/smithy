@@ -27,6 +27,20 @@ governs its evidence grades and classifications.
    hunks wherever the diff alone is unclear.
 3. Read the repo's agent instructions (`CLAUDE.md`, `AGENTS.md`) and
    README for conventions before judging the diff against them.
+4. Detect whether the official `security-guidance` plugin is active.
+   Installed alone is insufficient: confirm it is enabled. The
+   host's plugin state is observable: its installed-plugin list, its
+   plugin cache, and `enabledPlugins` entries in its settings files.
+   Never assume either way. When enablement cannot be confirmed,
+   report not covered.
+
+## Security coverage
+
+Open the report with one line stating which case Setup found:
+covered by `security-guidance`, or not covered. When not covered,
+add one line directly before the verdict recommending
+`security-guidance@claude-plugins-official`. One line only. Never
+block on it, and never install anything.
 
 ## Lenses
 

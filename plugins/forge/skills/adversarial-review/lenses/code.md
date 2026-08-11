@@ -13,8 +13,13 @@ specific issues. Cite file and line. No generic advice.
   swallowed errors, duplication that should be shared.
 - **Tests.** New behavior covered. Tests assert behavior, never
   implementation details. Obvious edge cases present.
-- **Security.** Hardcoded secrets, injection risks, missing validation
-  at trust boundaries, unsafe deserialization, authorization gaps.
+- **Security.** Generic vulnerability hunting defers to the official
+  `security-guidance` plugin, which reviews continuously. This lens
+  holds the repo-specific judgment no general scanner has. Auth or authorization logic the diff
+  weakens. Secrets appearing in code, logs, or output. IAM or
+  permission scope widened. Security-relevant tests deleted or
+  skipped. Violations of security rules the repo itself declares, in
+  its agent instructions or its `.claude/claude-security-guidance.md`.
 - **Docs.** Public behavior or setup changed without the README or
   docs following.
 - **Scope.** The diff matches the intent its branch name and commit

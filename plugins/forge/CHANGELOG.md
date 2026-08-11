@@ -1,5 +1,24 @@
 # Changelog
 
+## forge--v1.5.0
+
+### Changed
+
+- The code lens pack narrows its security lens to repo-specific
+  judgment: weakened auth, secrets in code or logs or output,
+  widened IAM scope, deleted or skipped security tests, and the
+  repo's own declared security rules. Generic vulnerability-class
+  hunting defers to Anthropic's official `security-guidance` plugin,
+  which reviews continuously.
+- review detects whether `security-guidance` is active, opens its
+  report with the coverage case, and recommends installing the
+  plugin in one line when it is absent. Never blocking, never an
+  install.
+- version recommends an on-demand `claude-security` scan in the
+  pre-tag confirmation when the repo holds deployable or sellable
+  code. Recommendation only: the scan is never run and never blocks
+  the tag.
+
 ## forge--v1.4.0
 
 ### Added
