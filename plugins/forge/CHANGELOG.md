@@ -1,5 +1,20 @@
 # Changelog
 
+## forge--v1.6.0
+
+### Added
+
+- Six generation rules in writing-style. Habits to avoid adds active
+  voice, a ban on adverbs propping weak verbs, and a ban on connector
+  colons. The work context adds cut the portable sentence, no
+  inline-header lists, and plain ASCII output. The ASCII rule carries
+  a watermark ban that never yields. The pre-delivery scan now covers
+  connector colons and non-ASCII punctuation in work-context output.
+- A vague-attribution lens in the prose lens pack, directly after
+  citation integrity. It flags any claim resting on "experts
+  believe", "studies show", or "industry reports suggest" with no
+  named source.
+
 ## forge--v1.5.0
 
 ### Changed
