@@ -45,6 +45,13 @@ above never yield.
 - **No stacked hedges.** One qualifier per claim.
 - **No rule-of-three padding.** Never stretch a list to three for
   rhythm.
+- **Write in the active voice.** Scan for "is, are, was, were" plus
+  a past participle. Name the actor instead. Passive is fine only
+  when the actor is unknown or genuinely does not matter.
+- **No adverb propping up a weak verb.** Replace it with a stronger
+  verb, or with the number the adverb stands in for.
+- **No colon as a mid-sentence connector.** A colon introduces a
+  list or an example. Nothing else.
 
 ## The work context
 
@@ -62,10 +69,21 @@ in the work context even inside creative commands.
 - **Keep vocabulary consistent.** One word per concept, reused.
 - **Match the target repo's spelling.** Follow the convention already
   in its prose. Default to American English only when there is none.
+- **Cut the portable sentence.** A sentence that would fit another
+  repo's docs unchanged says nothing about this one. Name the
+  mechanism, the fact, or the number instead.
+- **No inline-header lists.** A bold label and colon that restates
+  the line becomes prose. A bold lead-in that ends in a period and
+  then adds new detail stays.
+- **Keep output plain ASCII.** Straight quotes, sentence-case
+  headings, no decorative emoji. Never embed a watermark, visible or
+  hidden. That ban never yields. Manuscript typography is the
+  creative context's call, not this one's.
 
 ## Before delivering
 
 Scan your own prose, never quoted blocks, against the mechanical
 rules: dashes and semicolons (flag names like `--work` and number
 ranges do not count), the longest sentence, and fenced blocks holding
-only quoted material.
+only quoted material. Also scan for connector colons, and for
+non-ASCII punctuation in work-context output.
