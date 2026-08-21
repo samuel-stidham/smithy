@@ -2,7 +2,7 @@
 
 The fixed reference surface of the smithy family. Everything else in
 the shop moves. The anvil is what metal gets shaped against, and a
-Nix-defined environment plays the same role: the distro families move
+Nix-defined environment plays the same role. The distro families move
 underneath it, and the definition is the unmoving target they all
 converge to.
 
@@ -16,18 +16,18 @@ in scope for the checking verbs.
 **Requires the forge plugin.** anvil borrows `forge:web-browsing`
 (distro package databases, devenv documentation),
 `forge:writing-style`, and `forge:conventional-commits` by name. The
-browsing dependency is hard: without it anvil has no sanctioned way
+browsing dependency is hard. Without it anvil has no sanctioned way
 to read the references its rules forbid recalling from memory.
 
-- `/anvil:check` — per-dialect shell gates plus flake evaluation.
+- `/anvil:check` runs per-dialect shell gates plus flake evaluation.
   Read-only.
-- `/anvil:portability` — distro-family audit of shell and package
-  selection, with file, line, family, and loud-or-silent verdicts.
-  Read-only.
-- `/anvil:env` — create or update a devenv environment. Reads the
+- `/anvil:portability` audits shell and package selection across
+  distro families, with file, line, family, and loud-or-silent
+  verdicts. Read-only.
+- `/anvil:env` creates or updates a devenv environment. It reads the
   devenv docs before writing, every time.
-- `/anvil:switch` — build a machine definition, show the closure
-  diff, activate only on confirmation.
+- `/anvil:switch` builds a machine definition, shows the closure
+  diff, and activates only on confirmation.
 
 anvil never runs `sudo`, installs a package, or changes system state
 outside a Nix activation the user confirms. Bootstrap stays a script
@@ -46,5 +46,5 @@ enabling it globally.
 - Whether the portability trap list eventually earns a real linter.
   Today it is judgment applied by a model, and the list is too small
   and situational to justify a machine-applied rule.
-- Whether formatting belongs to anvil at all. The current answer:
-  run a formatter the repo configures, otherwise say nothing.
+- Whether formatting belongs to anvil at all. The current answer is
+  to run a formatter the repo configures, and otherwise say nothing.

@@ -4,7 +4,7 @@ description: The distro-family trap list for script shell. Use when auditing por
 user-invocable: false
 ---
 
-# Shell Portability
+# Shell portability
 
 The standing trap list for script shell across distro families.
 Every entry came from a failure already observed on a real machine.

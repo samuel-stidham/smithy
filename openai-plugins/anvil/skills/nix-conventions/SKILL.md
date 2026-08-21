@@ -3,7 +3,7 @@ name: nix-conventions
 description: Module layout rules for Nix machine definitions. Platform guards, store-resident scripts, home paths. Use when writing or reviewing Nix modules.
 ---
 
-# Nix Conventions
+# Nix conventions
 
 Module layout rules for machine definitions.
 

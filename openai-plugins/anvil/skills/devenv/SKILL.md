@@ -1,13 +1,13 @@
 ---
 name: devenv
-description: devenv conventions - file split, interpreter pinning, direnv activation, and the boundary against foundry. Use when writing development environments.
+description: devenv conventions. File split, interpreter pinning, direnv activation, and the boundary against foundry. Use when writing development environments.
 ---
 
 # devenv
 
 Conventions for [devenv](https://devenv.sh/) development
 environments. The first rule is `anvil:env`'s read-before-write
-rule, and it binds here too: anything whose vocabulary lives in
+rule, and it binds here too. Anything whose vocabulary lives in
 someone else's release notes gets read, never recalled.
 
 - **File split.** `devenv.nix` is the environment. `devenv.yaml` is
@@ -19,8 +19,8 @@ someone else's release notes gets read, never recalled.
   ship.
 - **Unfree toolchains.** `allowUnfree` is mandatory for CUDA.
   Neither this nor the pinning rule is guessable from option names.
-- **devenv's coding-agent integration** is configured by the owner
-  inside their environment (`claude.code.enable`) and generates
+- **devenv's coding-agent integration.** The owner configures it
+  inside their environment (`claude.code.enable`), and it generates
   hooks, commands, and MCP config from there. Never bake it or its
   pieces into a generated environment.
 - **The foundry boundary.** foundry scaffolds an application. anvil

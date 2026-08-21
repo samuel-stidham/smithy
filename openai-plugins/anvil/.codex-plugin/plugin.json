@@ -1,6 +1,6 @@
 {
   "name": "anvil",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Nix environment plugin for the smithy family. Checks shell across dialects and distro families, writes devenv environments, and activates machine definitions safely.",
   "author": {
     "name": "Samuel Stidham"

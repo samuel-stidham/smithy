@@ -1,6 +1,6 @@
 ---
 name: parity
-description: The standard a machine definition is judged against - feature, package, software, and configuration parity across families. Owns the package-name rule and the honesty rule.
+description: The standard a machine definition is judged against. Feature, package, software, and configuration parity across families. Owns the package-name rule and the honesty rule.
 ---
 
 # Parity

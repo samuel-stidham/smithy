@@ -3,7 +3,7 @@ name: shell-portability
 description: The distro-family trap list for script shell. Use when auditing portability across Debian, RHEL, Arch, and ostree families.
 ---
 
-# Shell Portability
+# Shell portability
 
 The standing trap list for script shell across distro families.
 Every entry came from a failure already observed on a real machine.

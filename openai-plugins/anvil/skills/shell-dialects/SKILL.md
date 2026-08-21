@@ -1,9 +1,9 @@
 ---
 name: shell-dialects
-description: Differences between bash, fish, and zsh - parsers, pipeline status indexing, process substitution, exports, startup files. Use when checking or porting shell.
+description: Differences between bash, fish, and zsh. Parsers, pipeline status indexing, process substitution, exports, startup files. Use when checking or porting shell.
 ---
 
-# Shell Dialects
+# Shell dialects
 
 The differences between bash, fish, and zsh that break ported
 scripts. `portability` asks which distro breaks. This skill answers

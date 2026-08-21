@@ -4,7 +4,7 @@ description: Module layout rules for Nix machine definitions. Platform guards, s
 user-invocable: false
 ---
 
-# Nix Conventions
+# Nix conventions
 
 Module layout rules for machine definitions.
 
