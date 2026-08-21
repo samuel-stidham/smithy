@@ -18,8 +18,8 @@ If `$ARGUMENTS` is empty, ask what to automate and how often.
 ## Workflow
 
 1. **Understand the job.** What runs, on what cadence, and what done
-   looks like. Confirm the job is genuinely recurring. A one-off
-   task belongs to `/forge:do-work`.
+   looks like. Confirm the job recurs. A one-off task belongs to
+   `/forge:do-work`.
 2. **Pick the surface.** Detect what the environment offers and
    match the job to it. Agent work fits Claude Code's own scheduled
    agents. Repo work that CI should own fits the provider's

@@ -24,4 +24,4 @@ fields, the never-do list, loud failure, and idempotent runs.
 
 bellows never merges, never pushes to a default branch, and never
 publishes. A human makes every irreversible call. Enable per repo,
-wherever unattended jobs actually run.
+wherever unattended jobs run.

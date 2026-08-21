@@ -3,7 +3,7 @@ name: automation-boundaries
 description: What unattended automation may and may not do. Every routine, watch, and scheduled job is judged against it.
 ---
 
-# Automation Boundaries
+# Automation boundaries
 
 The standard every unattended job is judged against. Attended work
 has a human noticing when something goes sideways. Unattended work
