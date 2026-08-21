@@ -1,5 +1,21 @@
 # Changelog
 
+## draft--v1.2.1
+
+### Changed
+
+- creative cites the writing-style mechanical rules without a count,
+  so the block can grow without breaking the reference. forge moved
+  its watermark ban into that block.
+- Poetry holds every other mechanical ban instead of naming the
+  dash and semicolon pair, so the watermark ban reaches verse.
+- review names its persona in a full sentence instead of through a
+  connector colon.
+- creative's voice rule names typography among what the project
+  owns, taking over from the sentence forge removed. The mechanical
+  bans still apply.
+- Skill headings move to sentence case per the writing-style rule.
+
 ## draft--v1.2.0
 
 ### Added

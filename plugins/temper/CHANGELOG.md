@@ -1,5 +1,13 @@
 # Changelog
 
+## temper--v0.2.1
+
+### Changed
+
+- audit drops the connector colon from its read-only rule and a
+  propping adverb.
+- Skill headings move to sentence case per the writing-style rule.
+
 ## temper--v0.2.0
 
 ### Changed

@@ -16,6 +16,18 @@ ephemeral `codex exec --json` sessions, verifies installed plugin
 identity before testing, and grades Codex JSONL transcripts without
 changing the user's plugin configuration.
 
+## forge--v1.6.1, draft--v1.2.1, anvil--v0.1.1, bellows--v0.1.1, temper--v0.2.1, foundry--v1.0.2
+
+- The sync script's Codex eval constants gain the byte-scan step
+  and drop a semicolon and a connector colon. The do-work
+  substitution sheds a semicolon and its redundant phrasing.
+- `evals/writing-style.md`: three scenarios covering banned
+  punctuation, verbatim quoted evidence, and a refused watermark
+  request.
+- The README lists all six prose lenses and drops its semicolons.
+- `.agents/context.md` drops a semicolon and points the dependency
+  declaration at the leaf manifests.
+
 ## forge--v1.3.0
 
 The repo gains `evals/`, holding behavioral scenario specs run as a

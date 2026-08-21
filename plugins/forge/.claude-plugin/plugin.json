@@ -2,7 +2,7 @@
   "name": "forge",
   "displayName": "Forge",
   "description": "Repo-agnostic core engineering workflow. Executes development tasks, debugs from symptoms, proves findings, verifies without mutating, refactors safely, evaluates options, reviews diffs, ships draft PRs, cuts releases, generates MCP test harnesses, and runs behavioral scenario evals.",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "author": {
     "name": "Samuel Stidham"
   },

@@ -1,5 +1,50 @@
 # Changelog
 
+## forge--v1.6.1
+
+### Added
+
+- Both lens packs raise each issue once, under the most specific
+  lens.
+
+### Changed
+
+- The dash ban names the spaced hyphen as a banned substitute.
+- The watermark ban moved into the mechanical block, retitled
+  "Mechanical rules for all writing", so it binds every context.
+  Citations of the block drop their count.
+- The plain ASCII rule narrows to prose and exempts tokens a host
+  mandates, such as a required PR trailer. Filed under changed
+  because 1.6.0 called it additive while it tightened article quote
+  style.
+- The portable-sentence rule targets docs that describe one repo
+  and exempts instructions written to run in any repo.
+- The inline-header ban becomes a ban on bold labels that repeat
+  their line, which the corpus's lead-ins already meet.
+- The pre-delivery scan covers invisible marks, exempts
+  double-hyphen identifiers, and keeps every sentence under the cap
+  it checks.
+- After a colon the sentence cap counts the stem and each item
+  separately, which the corpus's step-and-report style relies on.
+- The watermark ban names a host-mandated disclosure, such as a PR
+  trailer, as no watermark.
+- The ASCII rule's manuscript-typography sentence is gone.
+  Work-context scoping already keeps the rule off manuscripts.
+- The proof bar's fourth condition stays a property of the claim,
+  in the active voice.
+- eval grades a scenario's named byte scan beside tree hashes and
+  transcript grading.
+- verify reports per the writing-style skill, matching the other
+  verbs.
+- A prose sweep across the verbs, reference skills, and lens packs
+  drops connector colons, named-actor passives, and propping
+  adverbs. Each file drops what it held.
+- version's release-commit template names the plugin as
+  `{plugin} v{version}` in a marketplace monorepo.
+- version routes a repo-level change riding along to the root
+  changelog.
+- Skill headings move to sentence case per the writing-style rule.
+
 ## forge--v1.6.0
 
 ### Added

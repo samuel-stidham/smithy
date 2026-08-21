@@ -2,7 +2,7 @@
   "name": "draft",
   "displayName": "Draft",
   "description": "Writing studio for the smithy family. Writes books, poetry, technical articles, and repo documentation, reviews prose adversarially, and compiles ebooks for publishing. Requires the forge plugin for shared skills.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "dependencies": ["forge"],
   "author": {
     "name": "Samuel Stidham"

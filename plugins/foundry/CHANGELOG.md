@@ -1,5 +1,13 @@
 # Changelog
 
+## foundry--v1.0.2
+
+### Changed
+
+- scaffold and infrastructure-as-code drop connector colons, and
+  scaffold drops a propping adverb.
+- Skill headings move to sentence case per the writing-style rule.
+
 ## foundry--v1.0.1
 
 ### Added
