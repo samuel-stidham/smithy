@@ -28,8 +28,8 @@ no files, report that as the entire output and return no verdict.
    lenses judge the prose against them and against earlier
    installments.
 3. The synchronous fork this verb runs in is the skill's
-   fresh-context dispatch, and this file is the brief. The persona:
-   a hostile expert reader of the work's subject and genre.
+   fresh-context dispatch, and this file is the brief. The persona
+   is a hostile expert reader of the work's subject and genre.
 
 ## Review
 

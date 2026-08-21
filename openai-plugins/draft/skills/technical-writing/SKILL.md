@@ -3,7 +3,7 @@ name: technical-writing
 description: Blog article rules. Structure, verbatim code, verified citations, web research. Use when writing technical articles or posts.
 ---
 
-# Technical Writing
+# Technical writing
 
 Rules for blog articles and technical posts. Extends
 `forge:writing-style`, whose work context applies in full: lead with

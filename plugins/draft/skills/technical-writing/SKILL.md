@@ -4,7 +4,7 @@ description: Blog article rules. Structure, verbatim code, verified citations, w
 user-invocable: false
 ---
 
-# Technical Writing
+# Technical writing
 
 Rules for blog articles and technical posts. Extends
 `forge:writing-style`, whose work context applies in full: lead with

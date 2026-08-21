@@ -4,11 +4,11 @@ description: Creative writing rules extending forge:writing-style. Voice, contin
 user-invocable: false
 ---
 
-# Creative Writing
+# Creative writing
 
 Extends the `forge:writing-style` skill for manuscript content:
 chapters, scenes, essays, poems, worldbuilding. Load that skill
-first. Its three mechanical rules never yield. Its habit rules yield
+first. Its mechanical rules never yield. Its habit rules yield
 only where the project's existing prose establishes the pattern.
 Development artifacts, such as reports, commit messages, and PR text,
 stay in the work context even here.
@@ -29,10 +29,11 @@ these. Strip them from arguments before interpreting the task.
 ## Voice
 
 The repo owns the voice. Read the existing content first and match
-its narrative distance, vocabulary register, rhythm, and spelling,
-including British or other regional spelling. Never impose a house
-style on a project that already has one. A project with no content
-yet means asking for tone and audience before writing.
+its narrative distance, vocabulary register, rhythm, typography,
+and spelling, including British or other regional spelling. The
+mechanical bans still apply. Never impose a house style on a
+project that already has one. A project with no content yet means
+asking for tone and audience before writing.
 
 ## Continuity
 
@@ -52,6 +53,7 @@ jumping without transition.
 
 `--type-poetry` adapts the mechanics to verse. Line and stanza
 breaks outrank sentence structure. The twenty-two-word cap applies
-per line instead of per sentence. The dash and semicolon bans hold.
-Habits yield to the form. Match the form the project already uses,
-such as free verse, meter, or rhyme, before choosing one.
+per line instead of per sentence. The other mechanical bans hold
+unchanged. Habits yield to the form. Match the form the project
+already uses, such as free verse, meter, or rhyme, before choosing
+one.
