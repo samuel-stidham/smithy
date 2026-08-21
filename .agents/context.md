@@ -39,9 +39,9 @@ functional, named for the action they perform, never the metaphor.
 
 **Dependency rule:** leaf plugins (foundry, draft, anvil, bellows,
 temper) borrow forge skills by qualified name, such as
-`forge:clean-architecture`. forge references nothing outside itself. Never point a forge file at a
-leaf. A leaf verb appearing beside forge verbs is per-repo
-enablement, never a file reference.
+`forge:clean-architecture`. forge references nothing outside itself.
+Never point a forge file at a leaf. A leaf verb appearing beside
+forge verbs is per-repo enablement, never a file reference.
 
 ## Structure
 
@@ -52,8 +52,8 @@ manifest at `.claude-plugin/plugin.json`, its
 `/<plugin>:<name>`. The review verbs additionally run as synchronous
 forks (`context: fork`, `background: false`). Reference skills carry
 `user-invocable: false` and load by name. The Claude marketplace is
-`.claude-plugin/marketplace.json`; its leaf manifests declare
-`"dependencies": ["forge"]`.
+`.claude-plugin/marketplace.json`. Each leaf plugin's own manifest
+declares `"dependencies": ["forge"]`.
 
 `scripts/sync-openai-plugins.py` generates the OpenAI packages under
 `openai-plugins/` and the repo marketplace at

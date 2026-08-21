@@ -24,7 +24,7 @@ borrow its shared skills by name (`forge:clean-architecture`,
 `forge:writing-style`, `forge:citations`, `forge:web-browsing`,
 `forge:adversarial-review`). Claude Code installs forge
 from the dependency declared in each leaf manifest. ChatGPT and Codex
-users install forge first; the OpenAI plugin manifest does not expose
+users install forge first. The OpenAI plugin manifest does not expose
 Smithy's plugin-to-plugin dependency.
 
 ## Installation
@@ -121,7 +121,7 @@ Invoke a verb as `/forge:<name>` in Claude Code,
   one recommendation. Runners-up get the reason they lost.
 - **review** audits the current branch's diff against its base
   through six lenses: architecture, code quality, tests, security,
-  docs, and scope. Claude runs it in an isolated subagent; other
+  docs, and scope. Claude runs it in an isolated subagent. Other
   hosts preserve its read-only boundary. It ends with exactly one
   verdict: **SHIP IT**, **NEEDS WORK**, or **RETHINK**.
 - **ship** runs pre-flight checks, pushes the branch, and opens a
@@ -138,7 +138,7 @@ Invoke a verb as `/forge:<name>` in Claude Code,
   in headless sessions, one fresh scratch repo per scenario. Tree
   hashes decide whether a boundary held, and transcripts get graded
   against the verbs' own documented rules. Claude loads the package
-  under test directly; Codex uses ephemeral `codex exec --json`
+  under test directly. Codex uses ephemeral `codex exec --json`
   sessions and verifies each required plugin is installed, enabled,
   and current before it runs. Scenario files live in the repo's
   `evals/` directory.
@@ -222,9 +222,9 @@ audit, outside these diff-and-release layers.
   shown in a doc get run when safe, and unrun ones are marked.
 - **review** runs a hostile expert read of prose files through
   `forge:adversarial-review` with the prose lens pack. The lenses:
-  factual accuracy, citation integrity, steelman integrity, writing
-  style, and continuity. It reports severity findings and one
-  verdict, and it never edits.
+  factual accuracy, citation integrity, vague attribution, steelman
+  integrity, writing style, and continuity. It reports severity
+  findings and one verdict, and it never edits.
 
 ## anvil
 
