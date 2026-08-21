@@ -4,7 +4,7 @@ description: OpenTofu conventions. Module layout, provider abstraction, remote s
 user-invocable: false
 ---
 
-# Infrastructure as Code
+# Infrastructure as code
 
 The source of truth for how the foundry writes and applies OpenTofu,
 used by `/foundry:scaffold --infra` and `/foundry:deploy`. Provider
@@ -37,7 +37,7 @@ framework config such as `CACHE_STORE`, `QUEUE_CONNECTION`, or
 `--provider` accepts `aws`, `gcp`, or `digitalocean`. Each role maps
 to the provider's nearest managed service, falling back to a
 self-hosted container where none exists. Managed Meilisearch does not
-exist anywhere: self-host it with a persistent volume and say so in
+exist anywhere. Self-host it with a persistent volume and say so in
 the generated README. Provider specifics stay inside modules.
 `main.tf` reads the same shape everywhere.
 

@@ -21,7 +21,7 @@ when either is missing or ambiguous. Never guess.
 
 Project types and their shapes live in
 [project-types.md](project-types.md). Read it before generating.
-Language is unrestricted: use the named language's real idioms,
+Language is unrestricted. Use the named language's real idioms,
 package manager, test framework, and conventional layout.
 
 ## Infrastructure with --infra
@@ -55,7 +55,7 @@ Dockerfile. Add a deploy stage to the CI pipeline.
 8. README: what it is, the architecture and data flow, how to run
    locally and in Docker, how to test.
 9. Example tests per layer, per the skill's testing strategy. They
-   must actually pass.
+   must pass.
 10. `.editorconfig`, `.gitignore`, and an MIT `LICENSE` (ask when the
     copyright name is unclear).
 
