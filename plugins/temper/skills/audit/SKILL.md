@@ -8,7 +8,7 @@ disable-model-invocation: true
 # /temper:audit
 
 Audit the repo's security posture and report what an attacker would
-actually use. Read-only: findings are the deliverable, and fixes are
+use. Read-only. Findings are the deliverable, and fixes are
 `/temper:harden`. The `security-baseline` skill is the standard
 every finding is judged against. The `forge:change-control` skill
 supplies the claim grades, the proof bar, and the classifications.

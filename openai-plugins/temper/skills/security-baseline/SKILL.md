@@ -3,7 +3,7 @@ name: security-baseline
 description: The standard a repo's security posture is judged against. Exploitability ranking, the secrets bar, trust boundaries, and audit honesty.
 ---
 
-# Security Baseline
+# Security baseline
 
 The bar audit findings and harden fixes are both judged against.
 
