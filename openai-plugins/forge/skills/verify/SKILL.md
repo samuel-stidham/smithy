@@ -7,7 +7,7 @@ description: Run the repo's own QA checks from narrowest to broadest without cha
 
 Run the repository's own quality checks and report what they say.
 This verb introduces no production changes. The `change-control`
-skill governs it: verification never mutates.
+skill governs it. Verification never mutates.
 
 The focus is: the user's request. If empty, verify the current working tree.
 
@@ -34,8 +34,9 @@ The focus is: the user's request. If empty, verify the current working tree.
    of any tool.
 4. **Compare the working-tree state afterward.** If a check changed
    files, stop and report the mutation. Never silently revert it.
-5. **Report** every command run and its result, every skipped check
-   with its reason, the diff size, and the remaining uncertainty.
+5. **Report** per the `writing-style` skill: every command run and
+   its result, every skipped check with its reason, the diff size,
+   and the remaining uncertainty.
 
 ## Boundaries
 

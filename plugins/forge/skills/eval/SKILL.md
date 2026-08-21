@@ -28,6 +28,9 @@ A scenario file is Markdown. Each scenario names:
   and the skills it applies
 - what counts as a fail
 
+A boundary may name a byte scan of the produced files, which the
+tree-assert step runs and grades.
+
 ## Workflow
 
 1. **Locate the plugin roots** from the repo's
@@ -52,7 +55,8 @@ A scenario file is Markdown. Each scenario names:
    catch it. Capture the full transcript.
 6. **Assert the tree.** Hash again after the run. A scenario that
    forbids edits fails on any change, whatever the transcript
-   claims.
+   claims. When a scenario names a byte scan, run it on the
+   produced files and grade its result the same way.
 7. **Grade the transcript** against the scenario's boundaries. Cite
    the transcript line that proves each verdict. A missing stop, a
    missing recommendation, or a claim the tree contradicts is a
@@ -64,6 +68,6 @@ A scenario file is Markdown. Each scenario names:
 ## Boundaries
 
 Scratch repos are disposable. The repo under test is read-only.
-Never mark a scenario passed on transcript claims alone: the tree
+Never mark a scenario passed on transcript claims alone. The tree
 hash is the authority. A scenario the environment cannot run gets
 reported as skipped with the exact command, never guessed at.

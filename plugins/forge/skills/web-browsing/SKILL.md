@@ -4,7 +4,7 @@ description: Use the browse CLI for webpages, with the Browserbase remote-sessio
 user-invocable: false
 ---
 
-# Web Browsing
+# Web browsing
 
 `browse` drives real Chrome, locally or on Browserbase. Use it for any
 real webpage. WebFetch is for raw files, JSON APIs, and plain text

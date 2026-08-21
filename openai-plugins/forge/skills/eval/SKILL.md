@@ -26,6 +26,9 @@ A scenario file is Markdown. Each scenario names:
   and the skills it applies
 - what counts as a fail
 
+A boundary may name a byte scan of the produced files, which the
+tree-assert step runs and grades.
+
 ## Workflow
 
 1. **Locate the OpenAI plugin packages** from the repo's
@@ -62,11 +65,12 @@ A scenario file is Markdown. Each scenario names:
    installed plugin state. Auto-accept edits only inside the
    disposable scratch repo. Do not use the dangerous sandbox bypass.
    A verb that would violate a boundary must be able to, so the gate
-   can catch it. The JSONL event stream is the full transcript;
+   can catch it. The JSONL event stream is the full transcript.
    stderr is diagnostic context only.
 8. **Assert the tree.** Hash again after the run. A scenario that
    forbids edits fails on any change, whatever the transcript
-   claims.
+   claims. When a scenario names a byte scan, run it on the
+   produced files and grade its result the same way.
 9. **Grade the transcript** against the scenario's boundaries. Cite
    the JSONL line containing the agent message or command execution
    that proves each verdict. A missing stop, a missing
@@ -78,7 +82,7 @@ A scenario file is Markdown. Each scenario names:
 ## Boundaries
 
 Scratch repos are disposable. The repo under test is read-only.
-Never mark a scenario passed on transcript claims alone: the tree
+Never mark a scenario passed on transcript claims alone. The tree
 hash is the authority. Codex has no documented per-run plugin
 directory override, so test only an installed, enabled package whose
 source or version matches the target. A scenario the environment

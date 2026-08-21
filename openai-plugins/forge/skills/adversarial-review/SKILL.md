@@ -3,7 +3,7 @@ name: adversarial-review
 description: The shared adversarial review mechanism. A hostile fresh-context reviewer, a lens pack matched to the artifact, severity findings, one verdict. Use whenever a verb runs a review.
 ---
 
-# Adversarial Review
+# Adversarial review
 
 The review mechanism every review verb dispatches through. This file
 holds the invariants and stays short. The lenses live in packs under

@@ -20,13 +20,13 @@ If the user's request is empty, ask what to work on before doing anything else.
 The `change-control` skill governs evidence and scope. A feature is
 one observable vertical slice. A proven defect gets fixed against
 its existing proof. An unproven bug description or review finding
-stops here: recommend `forge:prove` or `forge:debug` instead of
+stops here. Recommend `forge:prove` or `forge:debug` instead of
 guessing at a fix. No "while here" cleanup rides along.
 
 ## Workflow
 
 1. **Understand.** Restate the task in your own words. Ask a clarifying
-   question only when you genuinely cannot proceed. Otherwise state your
+   question only when you cannot proceed. Otherwise state your
    assumption and continue.
 2. **Orient.** Read the repo's agent instructions (`CLAUDE.md`,
    `AGENTS.md`), the README, manifests, and neighboring code. Detect the
@@ -38,8 +38,8 @@ guessing at a fix. No "while here" cleanup rides along.
 5. **Implement.** Delegate implementation to available
    implementation subagents, at most two in flight, each with a disjoint set of
    files. Each brief must be self-contained: the files, the
-   conventions found, the tests expected. Give each subagent a self-contained brief; do not assume inherited
-   context. Implementers never touch git. You
+   conventions found, the tests expected. Do not assume any
+   inherited context. Implementers never touch git. You
    integrate their results and commit each logical step yourself,
    early and often per the `conventional-commits` skill, so an
    interrupted session never loses work. A small task may skip

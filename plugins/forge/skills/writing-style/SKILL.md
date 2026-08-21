@@ -4,24 +4,28 @@ description: Writing rules for all text the forge family produces. Work context 
 user-invocable: false
 ---
 
-# Writing Style
+# Writing style
 
 The canonical writing rules for every piece of text the forge family
 produces. A shared core applies everywhere. The work context applies by
 default. The draft plugin's `creative` skill extends these rules for
 manuscripts and owns the creative flags.
 
-## Rules for all writing
+## Mechanical rules for all writing
 
 These bind every sentence in every context. They are safe to mirror
 into always-loaded memory as a floor. This skill stays canonical.
 
 - **No em dashes.** That includes an en dash used as one and a double
-  hyphen standing in for one. Break the sentence in two, or use a
-  comma.
+  hyphen standing in for one. A spaced hyphen doing the same job
+  counts too. Break the sentence in two, or use a comma.
 - **No semicolons.** Same fix.
 - **Cap sentences at twenty-two words.** In verse the cap applies per
-  line. Split anything longer.
+  line. After a colon, the stem and each item count separately.
+  Split anything longer.
+- **No watermarks.** Never embed one, visible or hidden. Zero-width
+  characters and other invisible marks count. A disclosure a host
+  mandates, such as a PR trailer, is no watermark.
 
 ### Quoting exemption
 
@@ -35,12 +39,13 @@ follows every rule.
 
 The tells of machine-written text. They apply in full to the work
 context. In creative writing they yield only where the project's
-existing prose establishes the pattern. The three mechanical rules
-above never yield.
+existing prose establishes the pattern. The mechanical rules above
+never yield.
 
 - **No "not X, but Y" framing.** State what is true.
 - **No throat-clearing openers.** Start with the content.
-- **No closing paragraph that repeats what you just said.**
+- **No closing paragraph that repeats what you just said.** End on
+  the last new fact.
 - **No inflated stakes.** Skip crucial, vital, seamless, robust, and
   game-changing unless literally accurate.
 - **No stacked hedges.** One qualifier per claim.
@@ -48,7 +53,7 @@ above never yield.
   rhythm.
 - **Write in the active voice.** Scan for "is, are, was, were" plus
   a past participle. Name the actor instead. Passive is fine only
-  when the actor is unknown or genuinely does not matter.
+  when the actor is unknown or does not matter.
 - **No adverb propping up a weak verb.** Replace it with a stronger
   verb, or with the number the adverb stands in for.
 - **No colon as a mid-sentence connector.** A colon introduces a
@@ -70,21 +75,22 @@ in the work context even inside creative commands.
 - **Keep vocabulary consistent.** One word per concept, reused.
 - **Match the target repo's spelling.** Follow the convention already
   in its prose. Default to American English only when there is none.
-- **Cut the portable sentence.** A sentence that would fit another
-  repo's docs unchanged says nothing about this one. Name the
-  mechanism, the fact, or the number instead.
-- **No inline-header lists.** A bold label and colon that restates
-  the line becomes prose. A bold lead-in that ends in a period and
-  then adds new detail stays.
-- **Keep output plain ASCII.** Straight quotes, sentence-case
-  headings, no decorative emoji. Never embed a watermark, visible or
-  hidden. That ban never yields. Manuscript typography is the
-  creative context's call, not this one's.
+- **Cut the portable sentence.** When a doc describes one repo, a
+  sentence that would fit any other repo unchanged says nothing.
+  Name the mechanism, the fact, or the number instead. Instructions
+  written to run in any repo are exempt.
+- **No restating bold labels.** A bold label and colon that repeat
+  what the line says become prose. A lead-in that adds detail after
+  its period stays.
+- **Keep prose plain ASCII.** Straight quotes, sentence-case
+  headings, no decorative emoji. A token a host mandates, such as a
+  required PR trailer, is exempt.
 
 ## Before delivering
 
 Scan your own prose, never quoted blocks, against the mechanical
-rules: dashes and semicolons (flag names like `--work` and number
-ranges do not count), the longest sentence, and fenced blocks holding
-only quoted material. Also scan for connector colons, and for
-non-ASCII punctuation in work-context output.
+rules. Check dashes and semicolons, the longest sentence, invisible
+marks, and fenced blocks holding only quoted material. Identifiers
+like `--work` or `plugin--v1.2.3` and number ranges do not count.
+Also scan for connector colons, and for non-ASCII punctuation in
+work-context prose.

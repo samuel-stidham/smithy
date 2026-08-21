@@ -3,7 +3,7 @@ name: web-browsing
 description: Use the browse CLI for webpages, with the Browserbase remote-session budget. Use whenever a task opens a URL or WebFetch returns a JavaScript shell.
 ---
 
-# Web Browsing
+# Web browsing
 
 `browse` drives real Chrome, locally or on Browserbase. Use it for any
 real webpage. WebFetch is for raw files, JSON APIs, and plain text

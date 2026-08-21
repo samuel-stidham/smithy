@@ -4,7 +4,7 @@ description: The shared adversarial review mechanism. A hostile fresh-context re
 user-invocable: false
 ---
 
-# Adversarial Review
+# Adversarial review
 
 The review mechanism every review verb dispatches through. This file
 holds the invariants and stays short. The lenses live in packs under

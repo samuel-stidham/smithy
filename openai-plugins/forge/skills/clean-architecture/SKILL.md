@@ -3,12 +3,12 @@ name: clean-architecture
 description: Clean Architecture reference, reduced to this owner's positions and test-based enforcement. Use when scaffolding, reviewing layers, or designing a layered system.
 ---
 
-# Clean Architecture
+# Clean architecture
 
-The textbook is assumed: four layers, dependencies point inward, ports
-and adapters, composition at the entry point. This skill records where
-this codebase's owner takes positions the textbook leaves open, and
-how the rules are enforced by tests instead of prose.
+This skill assumes the textbook: four layers, dependencies point
+inward, ports and adapters, composition at the entry point. It
+records where this codebase's owner takes positions the textbook
+leaves open, and how tests instead of prose enforce the rules.
 
 ## Positions
 

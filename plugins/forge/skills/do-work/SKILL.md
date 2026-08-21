@@ -22,13 +22,13 @@ If `$ARGUMENTS` is empty, ask what to work on before doing anything else.
 The `change-control` skill governs evidence and scope. A feature is
 one observable vertical slice. A proven defect gets fixed against
 its existing proof. An unproven bug description or review finding
-stops here: recommend `/forge:prove` or `/forge:debug` instead of
+stops here. Recommend `/forge:prove` or `/forge:debug` instead of
 guessing at a fix. No "while here" cleanup rides along.
 
 ## Workflow
 
 1. **Understand.** Restate the task in your own words. Ask a clarifying
-   question only when you genuinely cannot proceed. Otherwise state your
+   question only when you cannot proceed. Otherwise state your
    assumption and continue.
 2. **Orient.** Read the repo's agent instructions (`CLAUDE.md`,
    `AGENTS.md`), the README, manifests, and neighboring code. Detect the

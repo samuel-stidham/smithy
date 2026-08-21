@@ -3,7 +3,7 @@ name: clean-code
 description: Code-level quality cues for any layer and language. Judgment over metrics. Use when implementing or reviewing code.
 ---
 
-# Clean Code
+# Clean code
 
 Judgment cues for code inside any layer. These record where this
 codebase's owner differs from common defaults. Apply them over generic

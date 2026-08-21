@@ -4,7 +4,7 @@ description: Commit message and PR title format for every commit the forge famil
 user-invocable: false
 ---
 
-# Conventional Commits
+# Conventional commits
 
 ## Subject line
 

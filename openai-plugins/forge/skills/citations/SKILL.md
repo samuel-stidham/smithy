@@ -12,10 +12,11 @@ rests on a source.
 ## The two spine rules
 
 - **Cite nothing you did not open.** Every reference comes from a
-  source actually read during the session, through the `web-browsing`
-  skill, or supplied by the user as a file or excerpt. Fabricated and
-  unverified references are the signature failure of AI-assisted
-  writing. A citation without a visit is a bug.
+  source actually read in the session or from material the user
+  supplies. Sources read on the web go through the `web-browsing`
+  skill. Fabricated and unverified references are the signature
+  failure of AI-assisted writing. A citation without a visit is a
+  bug.
 - **Cite nothing the reader cannot access.** The author must be able
   to read and obtain every source cited. The ladder below defines
   accessible.
@@ -45,6 +46,6 @@ reference to it in the ledger's format, at the time it is cited.
    acquired, never on faith.
 
 **Banned:** sources in a language the user does not read, and sources
-genuinely unobtainable at reasonable effort. When only an inaccessible
-source supports a claim, say so, then find an accessible alternative
-or drop the claim.
+unobtainable at reasonable effort. When only an inaccessible source
+supports a claim, say so, then find an accessible alternative or
+drop the claim.

@@ -20,7 +20,8 @@ explicit version like `1.2.3`. If empty, ask.
   `{plugin}--v{version}`, the double-hyphen form `claude plugin tag`
   produces and dependency resolution filters on. Update the changelog
   beside that plugin's manifest when one exists, else the root
-  changelog.
+  changelog. A repo-level change riding along gets its own entry in
+  the root changelog.
 - Otherwise, find the current version in this order: `VERSION.md`,
   semver git tags, a manifest version field. Nothing found means
   `0.0.0` and a first tagged release. Say so.
@@ -39,13 +40,15 @@ explicit version like `1.2.3`. If empty, ask.
 2. Update the version where it lives: the plugin's `plugin.json` in a
    marketplace monorepo, otherwise `VERSION.md` when present plus
    known manifest files. Never search-and-replace across the repo.
-3. Update the changelog: a new top section with commit subjects since
-   the last matching tag (`{plugin}--v*` in a monorepo, limited to
-   commits touching that plugin's directory), grouped by type per the
-   `conventional-commits` skill.
-4. Commit everything together as `chore(release): v{version}`. Create
-   the annotated tag with a brief summary from the changelog. Push the
-   tag and the commit.
+3. Update the changelog: a new top section with commit subjects
+   since the last matching tag, grouped by type per the
+   `conventional-commits` skill. In a monorepo the matching tag is
+   `{plugin}--v*`, limited to commits touching that plugin's
+   directory.
+4. Commit everything together as `chore(release): v{version}`, or as
+   `chore(release): {plugin} v{version}` in a marketplace monorepo.
+   Create the annotated tag with a brief summary from the changelog.
+   Push the tag and the commit.
 5. Report the version, tag, and remote URL. Remind about tag-triggered
    CI when the repo has it.
 

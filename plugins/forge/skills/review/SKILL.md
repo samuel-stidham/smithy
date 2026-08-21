@@ -28,7 +28,7 @@ governs its evidence grades and classifications.
 3. Read the repo's agent instructions (`CLAUDE.md`, `AGENTS.md`) and
    README for conventions before judging the diff against them.
 4. Detect whether the official `security-guidance` plugin is active.
-   Installed alone is insufficient: confirm it is enabled. The
+   Installed alone is insufficient. Confirm it is enabled. The
    host's plugin state is observable: its installed-plugin list, its
    plugin cache, and `enabledPlugins` entries in its settings files.
    Never assume either way. When enablement cannot be confirmed,
@@ -46,9 +46,9 @@ block on it, and never install anything.
 
 This review runs per the `adversarial-review` skill. The synchronous
 fork this verb runs in is that skill's fresh-context dispatch, and
-this file is the brief. The persona: a hostile expert in the changed
-code's stack. Load the code lens pack stored beside that skill's own
-file, at `lenses/code.md`, and work the diff through it.
+this file is the brief. The persona is a hostile expert in the
+changed code's stack. Load the code lens pack stored beside that
+skill's own file, at `lenses/code.md`, and work the diff through it.
 
 ## Findings
 

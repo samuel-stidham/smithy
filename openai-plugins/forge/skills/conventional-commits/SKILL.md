@@ -3,7 +3,7 @@ name: conventional-commits
 description: Commit message and PR title format for every commit the forge family creates. Use whenever committing or titling a PR.
 ---
 
-# Conventional Commits
+# Conventional commits
 
 ## Subject line
 

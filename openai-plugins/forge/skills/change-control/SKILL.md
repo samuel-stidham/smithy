@@ -3,7 +3,7 @@ name: change-control
 description: Evidence and scope control for investigating, reviewing, proving, fixing, verifying, hardening, and refactoring software.
 ---
 
-# Change Control
+# Change control
 
 Evidence and scope rules for every verb that inspects or changes
 code. They keep reviews and audits from quietly becoming speculative
@@ -25,7 +25,8 @@ A suspected bug is a hypothesis until all of these hold:
    boundary, or reproducible expected behavior.
 2. It shows a reachable execution path.
 3. It states the concrete preconditions that trigger it.
-4. The existing protections along that path have been examined.
+4. It survives an examination of the existing protections along
+   that path.
 5. Deterministic proof exists, or a precise proof strategy does.
 
 ## Classifying findings
